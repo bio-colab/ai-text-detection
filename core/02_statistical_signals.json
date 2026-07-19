@@ -1,0 +1,130 @@
+{
+  "file_name": "02_statistical_signals.json",
+  "category": "statistical_signals",
+  "description": "الإشارات الإحصائية المبنية على احتمالات النموذج",
+  "total_patterns": 14,
+  "patterns": [
+    {
+      "id": "STAT-001",
+      "name": "Low Perplexity",
+      "formula": "PPL = exp(-1/N sum log P)",
+      "threshold": "<40 AI vs >60 human",
+      "method": "GPT-2/Neo-2.7B",
+      "confidence": 0.92
+    },
+    {
+      "id": "STAT-002",
+      "name": "Low Burstiness",
+      "formula": "std(PPL_sentence)/mean",
+      "threshold": "Var <20",
+      "confidence": 0.88
+    },
+    {
+      "id": "STAT-003",
+      "name": "Token Rank Top-10 Overuse",
+      "formula": "% top-10",
+      "threshold": ">85% AI",
+      "confidence": 0.9
+    },
+    {
+      "id": "STAT-004",
+      "name": "Mean Token Entropy Low",
+      "formula": "H = -sum P log P",
+      "threshold": "<1.5 AI",
+      "confidence": 0.87
+    },
+    {
+      "id": "STAT-005",
+      "name": "DetectGPT Curvature",
+      "formula": "d = logP(x) - E[logP(xtilde)]",
+      "threshold": ">0.2 AI",
+      "method": "T5-3B perturb 100x",
+      "confidence": 0.93
+    },
+    {
+      "id": "STAT-006",
+      "name": "Fast-DetectGPT Conditional Curvature",
+      "formula": "mean(logP - E logP_alt)/std",
+      "threshold": ">1.0 AI",
+      "confidence": 0.95
+    },
+    {
+      "id": "STAT-007",
+      "name": "LogRank Average",
+      "formula": "mean(log rank)",
+      "threshold": "<1.0 AI",
+      "confidence": 0.86
+    },
+    {
+      "id": "STAT-008",
+      "name": "LRR Ratio",
+      "formula": "|LL|/|LogRank|",
+      "threshold": ">2.0 AI",
+      "confidence": 0.89
+    },
+    {
+      "id": "STAT-009",
+      "name": "NPR",
+      "formula": "mean LogRank_pert / LogRank_orig",
+      "threshold": ">1.2 AI",
+      "confidence": 0.84
+    },
+    {
+      "id": "STAT-010",
+      "name": "Binoculars Cross-PPL",
+      "formula": "logPPL_M1 / logX-PPL_M1M2",
+      "threshold": "<0.9 AI",
+      "method": "Falcon-7B + Instruct",
+      "confidence": 0.96
+    },
+    {
+      "id": "STAT-011",
+      "name": "DNA-GPT N-gram Divergence",
+      "formula": "ngram overlap",
+      "threshold": ">0.6 AI",
+      "confidence": 0.83
+    },
+    {
+      "id": "STAT-012",
+      "name": "Intrinsic Dimensionality PHD",
+      "formula": "TwoNN embeddings",
+      "threshold": "<9 AI",
+      "confidence": 0.82
+    },
+    {
+      "id": "STAT-013",
+      "name": "Token Cohesiveness TOCSIN",
+      "formula": "BARTScore deleted variants",
+      "threshold": ">0.92 AI",
+      "confidence": 0.81
+    },
+    {
+      "id": "STAT-014",
+      "name": "Min-K% Prob",
+      "formula": "mean lowest k% logP",
+      "threshold": ">-1.5 AI",
+      "confidence": 0.87
+    }
+  ],
+  "references": {
+    "arxiv": [
+      "2301.11305",
+      "2310.05130",
+      "1906.04043",
+      "2401.12070"
+    ],
+    "github": [
+      "detect-gpt",
+      "fast-detect-gpt",
+      "Binoculars"
+    ],
+    "huggingface": [
+      "GPT-2",
+      "GPT-Neo-2.7B"
+    ],
+    "wikipedia": [
+      "Perplexity",
+      "Entropy"
+    ]
+  }
+}

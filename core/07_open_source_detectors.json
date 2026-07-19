@@ -1,0 +1,112 @@
+{
+  "file_name": "07_open_source_detectors.json",
+  "category": "open_source_detectors",
+  "description": "أدوات مفتوحة المصدر GitHub + HF",
+  "total_patterns": 8,
+  "repos": [
+    {
+      "name": "openai/gpt-2-output-dataset",
+      "model": "roberta-base 125M"
+    },
+    {
+      "name": "yafuly/MAGE",
+      "dataset": "27 LLMs 7 tasks"
+    },
+    {
+      "name": "Hello-SimpleAI/chatgpt-comparison-detection",
+      "dataset": "HC3"
+    },
+    {
+      "name": "desklib/ai-text-detector",
+      "benchmark": "RAID leading"
+    },
+    {
+      "name": "ahans30/Binoculars",
+      "method": "Falcon-7B ratio"
+    },
+    {
+      "name": "bowang-lab/DetectGPT",
+      "method": "curvature"
+    },
+    {
+      "name": "jwkirchenbauer/lm-watermarking",
+      "method": "green/red"
+    },
+    {
+      "name": "rudra496/StealthHumanizer",
+      "analysis": "12-metric"
+    }
+  ],
+  "huggingface_models": [
+    {
+      "id": "openai-community/roberta-base-openai-detector",
+      "params": "125M"
+    },
+    {
+      "id": "Hello-SimpleAI/chatgpt-detector-roberta",
+      "dataset": "HC3"
+    },
+    {
+      "id": "desklib/ai-text-detector-v1.01",
+      "benchmark": "RAID"
+    },
+    {
+      "id": "yaful/MAGE",
+      "note": "cross-domain"
+    },
+    {
+      "id": "TrustSafeAI/RADAR-AI-Text-Detector",
+      "base": "roberta-large + Vicuna-7B"
+    },
+    {
+      "id": "GeorgeDrayson/modernbert-ai-detection",
+      "base": "ModernBERT"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "OS-001",
+      "name": "RoBERTa Classifier Score >0.8 AI"
+    },
+    {
+      "id": "OS-002",
+      "name": "MAGE DeBERTa-v3-base+FeatAttn 85.9% on M4"
+    },
+    {
+      "id": "OS-003",
+      "name": "HC3 Overly Complete Answers vs human short"
+    },
+    {
+      "id": "OS-004",
+      "name": "GLTR Visual green yellow red purple"
+    },
+    {
+      "id": "OS-005",
+      "name": "Binoculars Ratio PPL_M1 / X-PPL <0.9"
+    },
+    {
+      "id": "OS-006",
+      "name": "Watermark z-score"
+    },
+    {
+      "id": "OS-007",
+      "name": "RAID Adversarial typos paraphrase homoglyph"
+    },
+    {
+      "id": "OS-008",
+      "name": "Wikipedia AI Cleanup Here is your Wikipedia article"
+    }
+  ],
+  "references": {
+    "arxiv": [
+      "HC3 2301.07597",
+      "MAGE 2305.13242",
+      "M4 2402.11175",
+      "DetectGPT 2301.10226"
+    ],
+    "wikipedia": [
+      "AI content detection",
+      "Signs of AI writing"
+    ]
+  }
+}

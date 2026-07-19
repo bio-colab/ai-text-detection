@@ -1,0 +1,22 @@
+{
+  "collapse-filter": false,
+  "search": "path:Brain OR path:gaps OR file:HOME OR file:README",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": -0.5,
+  "nodeSizeMultiplier": 0.752768166089966,
+  "lineSizeMultiplier": 1.21055363321799,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.9197559982587895,
+  "close": true
+}

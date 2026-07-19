@@ -1,0 +1,155 @@
+{
+  "file_name": "04_black_box_detection.json",
+  "category": "black_box_detection",
+  "description": "كشف الصندوق الأسود بدون وصول للنموذج المصدر",
+  "total_patterns": 21,
+  "patterns": [
+    {
+      "id": "BB-001",
+      "name": "Low Perplexity Proxy",
+      "method": "PPL via GPT-2 surrogate <40-60",
+      "confidence": 0.92
+    },
+    {
+      "id": "BB-002",
+      "name": "Low Burstiness",
+      "method": "stdev sentence len / mean <0.4",
+      "confidence": 0.88
+    },
+    {
+      "id": "BB-003",
+      "name": "DetectGPT Curvature",
+      "method": "T5-3B perturb 100x",
+      "confidence": 0.9
+    },
+    {
+      "id": "BB-004",
+      "name": "Fast-DetectGPT Conditional Curvature",
+      "method": "GPT-J alternatives 340x faster",
+      "confidence": 0.91
+    },
+    {
+      "id": "BB-005",
+      "name": "DNA-GPT Regeneration",
+      "method": "truncate 0.5 regenerate 10x high overlap AI",
+      "confidence": 0.86
+    },
+    {
+      "id": "BB-006",
+      "name": "Binoculars Cross-PPL Ratio",
+      "method": "Falcon-7B ratio <0.9 AI",
+      "confidence": 0.93
+    },
+    {
+      "id": "BB-007",
+      "name": "Ghostbuster Weak-to-Strong",
+      "method": "unigram trigram GPT2-small features F1 99",
+      "confidence": 0.89
+    },
+    {
+      "id": "BB-008",
+      "name": "RoBERTa Supervised Detector",
+      "method": "openai-detector fine-tuned",
+      "confidence": 0.81
+    },
+    {
+      "id": "BB-009",
+      "name": "GLTR Rank Distribution",
+      "method": "%top-10 >85% AI",
+      "confidence": 0.84
+    },
+    {
+      "id": "BB-010",
+      "name": "AI Lexicon Fingerprint",
+      "method": "delve/tapestry list >3 per 1000",
+      "confidence": 0.79
+    },
+    {
+      "id": "BB-011",
+      "name": "Transition Overuse",
+      "method": "Moreover sentence start >2 per 300",
+      "confidence": 0.82
+    },
+    {
+      "id": "BB-012",
+      "name": "Template Formatting",
+      "method": "bold+colon **Key:**",
+      "confidence": 0.77
+    },
+    {
+      "id": "BB-013",
+      "name": "Low TTR",
+      "method": "TTR <0.55",
+      "confidence": 0.8
+    },
+    {
+      "id": "BB-014",
+      "name": "Noun-Heavy Formal Style",
+      "method": "noun ratio >0.32",
+      "confidence": 0.78
+    },
+    {
+      "id": "BB-015",
+      "name": "No Natural Typos",
+      "method": "0 errors suspicious",
+      "confidence": 0.71
+    },
+    {
+      "id": "BB-016",
+      "name": "Cliched Conclusions",
+      "method": "SBERT similarity >0.85",
+      "confidence": 0.75
+    },
+    {
+      "id": "BB-017",
+      "name": "Lack Personal Experience",
+      "method": "personal narrative classifier",
+      "confidence": 0.73
+    },
+    {
+      "id": "BB-018",
+      "name": "Proxy Perplexity Voting LLMDet",
+      "method": "vector PPLs correlation high",
+      "confidence": 0.85
+    },
+    {
+      "id": "BB-019",
+      "name": "Syntactic Rigidity",
+      "method": "tree edit distance <0.3",
+      "confidence": 0.8
+    },
+    {
+      "id": "BB-020",
+      "name": "Balanced Neutral Hedging",
+      "method": "sentiment std <0.1",
+      "confidence": 0.76
+    },
+    {
+      "id": "BB-021",
+      "name": "Em-dash Signature",
+      "method": "em-dash >6 per 1000",
+      "confidence": 0.7
+    }
+  ],
+  "references": {
+    "papers": [
+      "DetectGPT 2301.11305",
+      "Fast-DetectGPT 2310.05130",
+      "Binoculars 2401.12070",
+      "Ghostbuster 2305.15047"
+    ],
+    "github": [
+      "detect-gpt",
+      "Binoculars",
+      "ghostbuster"
+    ],
+    "huggingface": [
+      "roberta-large-openai-detector",
+      "Falcon-7B"
+    ],
+    "wikipedia": [
+      "Perplexity",
+      "Stylometry"
+    ]
+  }
+}

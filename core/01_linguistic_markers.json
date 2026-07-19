@@ -1,0 +1,220 @@
+{
+  "file_name": "01_linguistic_markers.json",
+  "category": "linguistic_markers",
+  "description": "العلامات اللغوية والمعجمية التي تكشف النص الإنجليزي المولد بالذكاء الاصطناعي",
+  "total_patterns": 20,
+  "patterns": [
+    {
+      "id": "LM-001",
+      "name": "Delve Family Overuse",
+      "examples": [
+        "delve into",
+        "delving into the intricacies"
+      ],
+      "detection": "regex \\bdelv(e|ing|ed)\\b",
+      "confidence": 0.96,
+      "sources": [
+        "arxiv:2412.11385"
+      ]
+    },
+    {
+      "id": "LM-002",
+      "name": "Pretentious Metaphorical Nouns",
+      "examples": [
+        "tapestry",
+        "realm",
+        "landscape",
+        "mosaic"
+      ],
+      "detection": "lexicon match",
+      "confidence": 0.93
+    },
+    {
+      "id": "LM-003",
+      "name": "Dramatic Adjectives",
+      "examples": [
+        "crucial",
+        "pivotal",
+        "groundbreaking"
+      ],
+      "detection": "ADJ freq >3.5%",
+      "confidence": 0.9
+    },
+    {
+      "id": "LM-004",
+      "name": "Formulaic Transitions",
+      "examples": [
+        "Moreover,",
+        "Furthermore,"
+      ],
+      "detection": "sentence-initial transition freq",
+      "confidence": 0.92
+    },
+    {
+      "id": "LM-005",
+      "name": "Meta Filler Phrases",
+      "examples": [
+        "It's important to note that"
+      ],
+      "detection": "335 phrases blacklist",
+      "confidence": 0.95
+    },
+    {
+      "id": "LM-006",
+      "name": "Em Dash Overuse",
+      "examples": [
+        "word — phrase — word"
+      ],
+      "detection": "U+2014 per 1000 >4",
+      "confidence": 0.88
+    },
+    {
+      "id": "LM-007",
+      "name": "Corporate Jargon Verbs",
+      "examples": [
+        "leverage",
+        "utilize",
+        "facilitate"
+      ],
+      "detection": "jargon lexicon",
+      "confidence": 0.9
+    },
+    {
+      "id": "LM-008",
+      "name": "Rule of Three Triplets",
+      "examples": [
+        "fast, reliable, and scalable"
+      ],
+      "detection": "triple coordination parse",
+      "confidence": 0.78
+    },
+    {
+      "id": "LM-009",
+      "name": "Balanced Contrast Not X but Y",
+      "examples": [
+        "It's not just X, it's Y"
+      ],
+      "detection": "template regex",
+      "confidence": 0.84
+    },
+    {
+      "id": "LM-010",
+      "name": "Cliche Openings",
+      "examples": [
+        "In today's fast-paced world"
+      ],
+      "detection": "trigram blacklist",
+      "confidence": 0.93
+    },
+    {
+      "id": "LM-011",
+      "name": "Cliche Conclusions",
+      "examples": [
+        "In conclusion, possibilities are endless"
+      ],
+      "detection": "last paragraph n-gram",
+      "confidence": 0.88
+    },
+    {
+      "id": "LM-012",
+      "name": "Tautological Rephrasing",
+      "examples": [
+        "highlights importance, underscores significance"
+      ],
+      "detection": "SBERT >0.88",
+      "confidence": 0.81
+    },
+    {
+      "id": "LM-013",
+      "name": "Perfect Grammar No Typos",
+      "examples": [
+        "0 errors in 1000 words"
+      ],
+      "detection": "error rate 0",
+      "confidence": 0.76
+    },
+    {
+      "id": "LM-014",
+      "name": "Sycophancy Openers",
+      "examples": [
+        "Great question!",
+        "Certainly!"
+      ],
+      "detection": "affirmation lexicon",
+      "confidence": 0.83
+    },
+    {
+      "id": "LM-015",
+      "name": "Quantifier Vagueness",
+      "examples": [
+        "wide range of, numerous"
+      ],
+      "detection": "quantifier vs NER ratio",
+      "confidence": 0.75
+    },
+    {
+      "id": "LM-016",
+      "name": "Low Lexical Diversity TTR",
+      "examples": [
+        "repeating innovative"
+      ],
+      "detection": "TTR <0.6",
+      "confidence": 0.89
+    },
+    {
+      "id": "LM-017",
+      "name": "Hedging Qualifiers",
+      "examples": [
+        "potentially, arguably"
+      ],
+      "detection": "hedging lexicon",
+      "confidence": 0.77
+    },
+    {
+      "id": "LM-018",
+      "name": "Universal Offerings Buzzwords",
+      "examples": [
+        "cutting-edge solutions"
+      ],
+      "detection": "generic centroid",
+      "confidence": 0.87
+    },
+    {
+      "id": "LM-019",
+      "name": "Low Sentence Start Diversity",
+      "examples": [
+        "This is... This method..."
+      ],
+      "detection": "entropy first 2 words <2.0 bits",
+      "confidence": 0.86
+    },
+    {
+      "id": "LM-020",
+      "name": "Present Participle ING Overuse",
+      "examples": [
+        "highlighting significance"
+      ],
+      "detection": "VBG per 1000 >12",
+      "confidence": 0.86
+    }
+  ],
+  "references": {
+    "arxiv": [
+      "2412.11385",
+      "2406.07016",
+      "2510.05136"
+    ],
+    "github": [
+      "CWOnline/AIWords",
+      "yotamgutman/ai-free-writing-checklist"
+    ],
+    "huggingface": [
+      "openai-detector",
+      "chatgpt-detector-roberta"
+    ],
+    "wikipedia": [
+      "Perplexity",
+      "Stylometry"
+    ]
+  }
+}

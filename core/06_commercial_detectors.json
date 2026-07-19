@@ -1,0 +1,169 @@
+{
+  "file_name": "06_commercial_detectors.json",
+  "category": "commercial_detectors",
+  "description": "أنماط أدوات تجارية",
+  "total_patterns": 22,
+  "tools_analyzed": {
+    "GPTZero": {
+      "method": "Perplexity + Burstiness + 7-component",
+      "accuracy": "99% 2% FPR"
+    },
+    "Turnitin": {
+      "method": "Segmentation 300w + RoBERTa + 200M papers",
+      "FPR": "1%"
+    },
+    "Originality.AI": {
+      "method": "stylometric + transformer SEO",
+      "accuracy": "97%"
+    },
+    "Copyleaks": {
+      "method": "Multi-layered AI Logic 30+ languages",
+      "claim": "99%+"
+    },
+    "Winston AI": {
+      "method": "Deep learning + OCR HUMN-1",
+      "claim": "99.98%"
+    },
+    "ZeroGPT": {
+      "method": "DeepAnalyse",
+      "claim": "98-99%"
+    }
+  },
+  "patterns": [
+    {
+      "id": "CD-001",
+      "name": "Low Perplexity",
+      "confidence": 0.96
+    },
+    {
+      "id": "CD-002",
+      "name": "Low Burstiness",
+      "confidence": 0.95
+    },
+    {
+      "id": "CD-003",
+      "name": "Overused AI Vocabulary 50-269x GPTZero 3.3M Feb2026",
+      "words": [
+        "delve",
+        "pivotal",
+        "crucial",
+        "testament"
+      ],
+      "confidence": 0.93
+    },
+    {
+      "id": "CD-004",
+      "name": "Excessive Transitions",
+      "confidence": 0.88
+    },
+    {
+      "id": "CD-005",
+      "name": "Template Repetition 76% vs 35% human",
+      "confidence": 0.91
+    },
+    {
+      "id": "CD-006",
+      "name": "Rule of Three Listicles",
+      "confidence": 0.82
+    },
+    {
+      "id": "CD-007",
+      "name": "Avoid Simple Copulas serves as vs is",
+      "confidence": 0.84
+    },
+    {
+      "id": "CD-008",
+      "name": "ING Clause Overuse 450 vs 306",
+      "confidence": 0.86
+    },
+    {
+      "id": "CD-009",
+      "name": "Symmetric Load Balancing equal sections",
+      "confidence": 0.89
+    },
+    {
+      "id": "CD-010",
+      "name": "Formulaic Conclusions In conclusion",
+      "confidence": 0.85
+    },
+    {
+      "id": "CD-011",
+      "name": "Promotional Hype pivotal moment",
+      "confidence": 0.8
+    },
+    {
+      "id": "CD-012",
+      "name": "Generic Analysis valuable insights",
+      "confidence": 0.87
+    },
+    {
+      "id": "CD-013",
+      "name": "Vague Attributions Experts argue",
+      "confidence": 0.83
+    },
+    {
+      "id": "CD-014",
+      "name": "No Personal Pronouns",
+      "confidence": 0.81
+    },
+    {
+      "id": "CD-015",
+      "name": "Sentiment Homogeneity variance 0.12 vs 0.45",
+      "confidence": 0.79
+    },
+    {
+      "id": "CD-016",
+      "name": "Flawless Grammar",
+      "confidence": 0.75
+    },
+    {
+      "id": "CD-017",
+      "name": "Low TTR 0.42 vs 0.58",
+      "confidence": 0.88
+    },
+    {
+      "id": "CD-018",
+      "name": "Nominalization utilization vs using",
+      "confidence": 0.8
+    },
+    {
+      "id": "CD-019",
+      "name": "Em Dash Overuse >2 per 100 LinkedIn 2025",
+      "confidence": 0.84
+    },
+    {
+      "id": "CD-020",
+      "name": "Bullets Bold Title Case Hooks",
+      "confidence": 0.78
+    },
+    {
+      "id": "CD-021",
+      "name": "Hallucinated Citations strongest signal",
+      "confidence": 0.94
+    },
+    {
+      "id": "CD-022",
+      "name": "Statistical Signature avg log-prob -1.2 vs -3.5",
+      "confidence": 0.96
+    }
+  ],
+  "references": {
+    "papers": [
+      "2406.15583",
+      "2303.11156",
+      "Turnitin whitepaper"
+    ],
+    "github": [
+      "GPTZero",
+      "AIGC_text_detector"
+    ],
+    "huggingface": [
+      "RADAR",
+      "modernbert-ai-detection"
+    ],
+    "wikipedia": [
+      "GPTZero",
+      "AI content detection"
+    ]
+  }
+}

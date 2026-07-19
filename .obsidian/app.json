@@ -1,0 +1,12 @@
+{
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Brain/memory",
+  "attachmentFolderPath": "Brain/attachments",
+  "showUnsupportedFiles": true,
+  "defaultViewMode": "preview",
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": true,
+  "promptDelete": true
+}

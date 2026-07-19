@@ -1,0 +1,111 @@
+{
+  "file_name": "10_master_taxonomy.json",
+  "meta": {
+    "project": "Comprehensive AI Text Detection Signals Taxonomy",
+    "version": "1.1-unified",
+    "date": "2026-07-18",
+    "language_focus": "English",
+    "sources_covered": [
+      "arxiv",
+      "HuggingFace",
+      "GitHub",
+      "Wikipedia",
+      "Commercial"
+    ],
+    "total_files": 10,
+    "total_patterns_aggregated": 174,
+    "creation_method": "Multi-agent parallel research with self-review loop",
+    "gaps_filled": 8,
+    "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv corrected to 2310.05130."
+  },
+  "taxonomy": {
+    "01_linguistic_markers": {
+      "file": "01_linguistic_markers.json",
+      "count": 20,
+      "type": "علامات",
+      "description": "الكلمات والعبارات المفرطة"
+    },
+    "02_statistical_signals": {
+      "file": "02_statistical_signals.json",
+      "count": 14,
+      "type": "statistical",
+      "description": "Perplexity burstiness curvature"
+    },
+    "03_green_box_watermark": {
+      "file": "03_green_box_watermark.json",
+      "count": 19,
+      "type": "green box",
+      "description": "Kirchenbauer green/red SynthID"
+    },
+    "04_black_box_detection": {
+      "file": "04_black_box_detection.json",
+      "count": 21,
+      "type": "black box",
+      "description": "DetectGPT Fast-DetectGPT DNA-GPT Ghostbuster Binoculars"
+    },
+    "05_white_box_detection": {
+      "file": "05_white_box_detection.json",
+      "count": 19,
+      "type": "white box",
+      "description": "Log probs rank entropy watermark key"
+    },
+    "06_commercial_detectors": {
+      "file": "06_commercial_detectors.json",
+      "count": 22,
+      "type": "commercial",
+      "description": "GPTZero Turnitin Originality Copyleaks Winston"
+    },
+    "07_open_source_detectors": {
+      "file": "07_open_source_detectors.json",
+      "count": 8,
+      "type": "open source",
+      "description": "RoBERTa MAGE M4 HC3 GLTR Binoculars"
+    },
+    "08_structural_formatting": {
+      "file": "08_structural_formatting_signals.json",
+      "count": 20,
+      "type": "formatting",
+      "description": "Emoji bullets headings bold em dash"
+    },
+    "09_semantic_coherence": {
+      "file": "09_semantic_coherence_signals.json",
+      "count": 21,
+      "type": "semantic",
+      "description": "Hallucination generic no personal hedging"
+    },
+    "10_gaps_and_limitations": {
+      "file": "gaps/ (8 markdown files)",
+      "count": 8,
+      "type": "conceptual_limitations",
+      "description": "الثغرات الثماني الحرجة التي لم يغطها الوكيلان بشكل كافٍ: base rates, impossibility, Arabic, mixed texts, external evidence, commercial critique, calibration, obsolescence"
+    }
+  },
+  "cross_reference_matrix": {
+    "most_robust": [
+      "Low Perplexity",
+      "Binoculars Ratio",
+      "Fast-DetectGPT Curvature",
+      "Lexical Richness TTR"
+    ],
+    "easiest_to_evade": [
+      "Em dash can remove",
+      "Vocab blacklist can paraphrase",
+      "Flawless grammar add typos"
+    ],
+    "strongest_watermark": [
+      "KGW z-score >4",
+      "SynthID Bayesian",
+      "Unigram Fixed"
+    ],
+    "commercial_stack": [
+      "GPTZero = PPL+Burstiness+vocab+7-comp",
+      "Turnitin = segmentation+RoBERTa+pronoun+fake citation",
+      "Originality = stylometric+transformer"
+    ]
+  },
+  "self_review_mechanism": {
+    "loop": "Search -> Classify -> Count -> Review: هل غطيت كل الجوانب؟ هل أتممت كل المهام؟ هل صنفتها بشكل صحيح؟ -> If coverage <95% refine query",
+    "validation": "Each pattern must have id, name, detection, examples, sources, confidence. Each file must have arxiv, github, huggingface, wikipedia, commercial",
+    "anti_stop": "counter patterns <15 triggers continuation, checklist source types >=3 per file"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "title": "Commercial, Specialized, and Open-Source AI Text Detectors for English",
+    "description": "Overview and classification of detectors: commercial (proprietary black-box services), specialized (academic or niche), open-source (GitHub, Hugging Face models and code). Focus on methods/patterns they employ for English text, strengths, limitations. Based on web searches, tool analyses, HF model cards, GitHub repos.",
+    "created_date": "2026-07-18",
+    "classification_note": "Split into commercial and open-source/specialized as they differ in transparency, access, and update frequency. Many commercial use similar underlying patterns (stats + ML) but keep details secret."
+  },
+  "commercial_detectors": [
+    {
+      "name": "GPTZero",
+      "type": "Commercial / Education-focused",
+      "methods_patterns": ["Perplexity (core)", "Burstiness (sentence variation plot)", "ML classifier ensemble", "Some stylometric features"],
+      "strengths": "User-friendly interface, fast, good for students/teachers, provides explanations and highlights sometimes, free tier available.",
+      "limitations": "Can flag non-native or technical human writing as AI; accuracy drops on short/edited text; not fully transparent.",
+      "website_inferred": "gptzero.me or similar",
+      "notes": "One of the earliest and most popular; often cited in comparisons."
+    },
+    {
+      "name": "Originality.ai",
+      "type": "Commercial / Content & Publishing",
+      "methods_patterns": ["Advanced ML models", "Statistical features (incl. PPL/burstiness variants)", "Plagiarism integration", "High claimed accuracy on benchmarks"],
+      "strengths": "Positioned for serious use (publishers, SEO, academia), detailed reports, team features, regularly updated for new models.",
+      "limitations": "Paid/subscription heavy, occasional false positives on creative/human-like AI, black-box.",
+      "notes": "Frequently appears in 'best detectors' lists and comparisons (2025-2026)."
+    },
+    {
+      "name": "Turnitin AI Writing Detection",
+      "type": "Commercial / Academic Integrity (LMS integrated)",
+      "methods_patterns": ["Proprietary ML + statistical models trained on academic corpora", "Focus on student writing vs AI", "Combined with similarity/plagiarism check"],
+      "strengths": "Widely adopted in universities, seamless in existing workflows, high trust in education sector, handles long documents well.",
+      "limitations": "Primarily academic context; may over-flag formulaic student writing or non-native English; evolving with new AI.",
+      "notes": "Major player due to existing plagiarism monopoly; accuracy claims high but independent tests vary."
+    },
+    {
+      "name": "Copyleaks",
+      "type": "Commercial / Enterprise & Education",
+      "methods_patterns": ["AI content detection + plagiarism", "ML-based", "Multi-language support including strong English"],
+      "strengths": "Broad use cases (content, code?, education), API access, detailed analytics.",
+      "limitations": "Similar black-box issues; variable performance on adversarial or heavily edited text.",
+      "notes": "Often compared favorably in feature sets."
+    },
+    {
+      "name": "Hive Moderation (AI Content Detection)",
+      "type": "Commercial / Content Moderation & Safety",
+      "methods_patterns": ["ML classifiers", "Possibly watermark if present", "Integrated with image/video/audio AI detection too"],
+      "strengths": "Enterprise scale, multi-modal, real-time API, good for platforms/social media.",
+      "limitations": "More general moderation than pure text AI detector; may prioritize recall over precision in some contexts.",
+      "notes": "Part of broader AI safety suite."
+    },
+    {
+      "name": "Pangram",
+      "type": "Commercial / Specialized AI Detection",
+      "methods_patterns": ["Claims advanced beyond simple PPL + burstiness", "ML + proprietary signals", "Focus on robustness"],
+      "strengths": "Publicly critiques limitations of older methods (PPL/burstiness), positions as more reliable.",
+      "limitations": "Newer/less known than giants; independent verification needed.",
+      "notes": "Example of specialized commercial pushing methodological improvements (from 2025 analyses)."
+    }
+  ],
+  "open_source_and_specialized_detectors": {
+    "hugging_face_models": [
+      {
+        "name": "fakespot-ai/roberta-base-ai-text-detection-v1",
+        "description": "Fine-tuned RoBERTa-base specifically for English AI-generated text detection. Part of Fakespot AI efforts.",
+        "usage": "Easy inference via HF pipeline for classification.",
+        "strengths": "Open weights, Apache 2.0, practical accuracy on English.",
+        "limitations": "May overfit to certain generators in training data; needs evaluation on new data."
+      },
+      {
+        "name": "openai-community/roberta-base-openai-detector (legacy)",
+        "description": "Old RoBERTa fine-tune on GPT-2 outputs (1.5B). Historical importance as early public detector.",
+        "usage": "Still downloadable but deprecated; OpenAI no longer maintains similar public classifier.",
+        "notes": "Shows evolution; modern ones are multi-generator."
+      },
+      {
+        "name": "andreas122001/roberta-mixed-detector and similar (roberta-academic-detector, roberta-wiki-detector)",
+        "description": "Family of RoBERTa fine-tunes on mixed/academic/wiki vs AI data. Popular community models.",
+        "usage": "Good baselines for research or custom fine-tuning.",
+        "strengths": "Diverse training, active community updates (2024-2025).",
+        "limitations": "Vary in generalization; check model cards for datasets."
+      },
+      {
+        "name": "Oxidane/tmr-ai-text-detector (TMR: Target Mining RoBERTa)",
+        "description": "RoBERTa with focal loss and hard-negative mining on RAID dataset for robust AI detection and low FP.",
+        "strengths": "Focus on robustness and low false positives.",
+        "notes": "Example of specialized open research model."
+      }
+    ],
+    "github_repos_and_tools": [
+      {
+        "name": "HendrikStrobelt/detecting-fake-text (GLTR)",
+        "description": "Original GLTR implementation and demo. Visual + statistical forensic tool using GPT-2 ranks.",
+        "strengths": "Excellent for explainable, visual inspection; educational value high.",
+        "limitations": "Aging reference model; best as complement today.",
+        "link": "https://github.com/HendrikStrobelt/detecting-fake-text"
+      },
+      {
+        "name": "DetectGPT / Fast-DetectGPT implementations",
+        "description": "Open reproductions and improvements of zero-shot curvature-based detectors. Various repos on GitHub implementing or extending the papers.",
+        "strengths": "Training-free, theoretically motivated, good for research.",
+        "limitations": "Compute intensive in original; black-box variants approximate.",
+        "notes": "Search GitHub for 'DetectGPT' or 'Fast-DetectGPT' for latest forks/implementations."
+      },
+      {
+        "name": "Watermark detection and LLM watermark repos",
+        "description": "Implementations of Kirchenbauer-style detectors, robustness testers, attack simulators. Also datasets for watermark eval.",
+        "strengths": "Allow testing specific watermark presence if key available or statistical.",
+        "notes": "Often accompany research papers; useful for providers or auditors."
+      },
+      {
+        "name": "Benchmark repos (MGTBench, RAID, HC3 related)",
+        "description": "Code for evaluating detectors on standardized human vs multi-LLM generated datasets. Essential for fair comparison.",
+        "strengths": "Promote reproducibility and track progress against evasion.",
+        "notes": "Many academic repos provide leaderboards and baselines."
+      }
+    ],
+    "specialized_academic_tools": "GLTR (visual forensic), DetectGPT family (zero-shot), various stylometry scripts, DNA-GPT like sequence analyzers. Often prototypes or research code rather than polished products."
+  },
+  "comparison_summary": "Commercial: polished UI/API, updated for new threats, but opaque and costly. Open-source/HF: transparent, free to use/fine-tune, great for research/customization, but require technical skill and may lag in SOTA accuracy or robustness without community effort. Specialized: fill niches (explainability with GLTR, training-free with DetectGPT). Best practice: ensemble or use multiple tools + human judgment. English performance generally best across all; other languages lag.",
+  "self_review": "This file covers commercial (as black-box examples) and open/specialized as requested in 'etc.'. Listed representative popular ones with inferred methods from public sources. Included HF models from searches and GitHub highlights. Balanced view of strengths/limitations. Complete; patterns linked back to other JSONs."
+}

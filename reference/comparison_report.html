@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محكّ المقارنة — تحكيم بين وكيلَي بحثٍ حول إشارات كشف النصّ المولّد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1b1e;          /* deep assay-lab ink */
+    --ink-2:#122528;
+    --panel:#16292c;
+    --panel-2:#193034;
+    --line:rgba(120,168,168,.16);
+    --line-strong:rgba(120,168,168,.30);
+    --fg:#e8f0ee;
+    --muted:#9db4b2;
+    --faint:#6f8a89;
+    --A:#e0a43b;            /* Agent A — brass / the dense catalog */
+    --A-soft:rgba(224,164,59,.14);
+    --B:#4fd1c5;            /* Agent B — cyan / the analyst */
+    --B-soft:rgba(79,209,197,.14);
+    --gap:#f3806b;          /* the shared blind-spots accent */
+    --gap-soft:rgba(243,128,107,.13);
+    --ok:#7fd18c;
+    --warn:#f3c14f;
+    --bad:#f3806b;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:
+      radial-gradient(1100px 620px at 82% -8%, #1a3236 0%, transparent 60%),
+      radial-gradient(900px 520px at 8% 4%, #16292c 0%, transparent 55%),
+      var(--ink);
+    color:var(--fg);
+    font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+    font-weight:400; line-height:1.75; font-size:16.5px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px; margin:0 auto; padding:clamp(20px,4vw,56px)}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-feature-settings:"tnum"; direction:ltr; unicode-bidi:isolate}
+  h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif; font-weight:600; line-height:1.3; letter-spacing:0}
+
+  /* ---------- Masthead ---------- */
+  .masthead{border:1px solid var(--line-strong); border-radius:20px; padding:clamp(22px,3.4vw,40px);
+    background:linear-gradient(180deg,var(--panel-2),var(--ink-2)); position:relative; overflow:hidden}
+  .masthead::before{content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(90deg,transparent 49.6%,var(--line) 49.6%,var(--line) 50.4%,transparent 50.4%);
+    opacity:.5; pointer-events:none}
+  .eyebrow{font-family:"IBM Plex Mono",monospace; direction:ltr; text-align:right; font-size:12.5px; letter-spacing:3px;
+    text-transform:uppercase; color:var(--faint); margin:0 0 14px}
+  .masthead h1{font-size:clamp(26px,4.6vw,44px); margin:0 0 10px; font-weight:700}
+  .masthead .thesis{font-size:clamp(15px,2vw,18.5px); color:var(--muted); max-width:62ch; margin:0}
+  .masthead .thesis b{color:var(--fg); font-weight:600}
+  .kbadge{display:inline-block; margin-top:18px; font-size:13px; color:var(--faint);
+    border-top:1px dashed var(--line-strong); padding-top:14px; width:100%}
+
+  /* ---------- Contenders ---------- */
+  .contenders{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0}
+  @media(max-width:680px){.contenders{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line); border-radius:16px; padding:20px 20px 18px; background:var(--panel); position:relative}
+  .card.A{border-top:3px solid var(--A)}
+  .card.B{border-top:3px solid var(--B)}
+  .card .tag{font-family:"IBM Plex Mono",monospace; direction:ltr; font-size:12px; letter-spacing:2px; color:var(--faint)}
+  .card h3{margin:6px 0 2px; font-size:19px}
+  .card.A h3 .dot,.card.B h3 .dot{display:inline-block; width:11px; height:11px; border-radius:50%; margin-left:8px; vertical-align:middle}
+  .card.A .dot{background:var(--A)} .card.B .dot{background:var(--B)}
+  .card .zip{font-family:"IBM Plex Mono",monospace; direction:ltr; text-align:right; font-size:12px; color:var(--muted); word-break:break-all; margin:2px 0 12px}
+  .card .persona{color:var(--muted); font-size:14.5px; min-height:44px}
+  .stats{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .stat{background:var(--ink-2); border:1px solid var(--line); border-radius:10px; padding:8px 11px; font-size:13px; color:var(--muted)}
+  .stat b{color:var(--fg); font-weight:600}
+  .stat .mono{font-size:12.5px}
+
+  /* ---------- Section scaffolding ---------- */
+  section{margin-top:44px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px; border-bottom:1px solid var(--line); padding-bottom:12px}
+  .sec-head .num{font-family:"IBM Plex Mono",monospace; direction:ltr; color:var(--faint); font-size:14px; letter-spacing:1px}
+  .sec-head h2{font-size:clamp(20px,3vw,27px); margin:0}
+  .lede{color:var(--muted); max-width:70ch; margin:14px 0 0}
+
+  /* ---------- Verdict box ---------- */
+  .verdict{border:1px solid var(--line-strong); border-radius:16px; overflow:hidden; margin-top:18px}
+  .verdict .row{display:grid; grid-template-columns:150px 1fr; gap:0; border-bottom:1px solid var(--line)}
+  .verdict .row:last-child{border-bottom:0}
+  .verdict .q{background:var(--ink-2); padding:16px 18px; font-family:"Reem Kufi",sans-serif; font-weight:600; color:var(--fg); font-size:15px; border-left:1px solid var(--line)}
+  .verdict .a{padding:16px 18px; color:var(--muted); font-size:15px}
+  .verdict .a b{color:var(--fg)}
+  @media(max-width:600px){.verdict .row{grid-template-columns:1fr}.verdict .q{border-left:0;border-bottom:1px solid var(--line)}}
+  .win-A{color:var(--A); font-weight:600} .win-B{color:var(--B); font-weight:600}
+
+  /* ---------- Diverging score chart ---------- */
+  .chart{margin-top:22px; border:1px solid var(--line); border-radius:16px; background:var(--panel); padding:18px clamp(12px,2.5vw,26px) 24px}
+  .chart-legend{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; font-size:13.5px}
+  .chart-legend .side{display:flex; align-items:center; gap:8px; color:var(--muted); font-family:"IBM Plex Mono",monospace; direction:ltr}
+  .chart-legend .side .sw{width:13px; height:13px; border-radius:3px}
+  .chart-legend .scaleNote{color:var(--faint); font-size:12px}
+  .axis{margin:0 0 16px}
+  .axis:last-child{margin-bottom:0}
+  .axis .top{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px}
+  .axis .name{font-size:14.5px; color:var(--fg); font-weight:500}
+  .axis .who{font-family:"IBM Plex Mono",monospace; direction:ltr; font-size:12px; padding:2px 9px; border-radius:20px; white-space:nowrap}
+  .who.a{background:var(--A-soft); color:var(--A); border:1px solid rgba(224,164,59,.3)}
+  .who.b{background:var(--B-soft); color:var(--B); border:1px solid rgba(79,209,197,.3)}
+  .meter{position:relative; height:26px; background:linear-gradient(90deg,var(--B-soft),transparent 46%,transparent 54%,var(--A-soft)); border-radius:6px}
+  .meter .mid{position:absolute; left:50%; top:-3px; bottom:-3px; width:2px; background:var(--line-strong); transform:translateX(-50%)}
+  .bar{position:absolute; top:4px; height:18px; display:flex; align-items:center; font-family:"IBM Plex Mono",monospace; direction:ltr; font-size:11.5px; font-weight:600}
+  .bar.b{right:50%; background:linear-gradient(270deg,var(--B),rgba(79,209,197,.55)); border-radius:5px 0 0 5px; justify-content:flex-start; padding-right:6px; color:#06201d}
+  .bar.a{left:50%; background:linear-gradient(90deg,var(--A),rgba(224,164,59,.55)); border-radius:0 5px 5px 0; justify-content:flex-end; padding-left:6px; color:#231502}
+  .axis .why{font-size:13px; color:var(--muted); margin-top:7px; padding-right:2px}
+  .axis .why .mono{color:var(--faint)}
+
+  .totals{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px; margin-top:22px; padding-top:18px; border-top:1px dashed var(--line-strong)}
+  .totals .t{text-align:center}
+  .totals .t .lab{font-size:12.5px; color:var(--faint); font-family:"IBM Plex Mono",monospace; direction:ltr}
+  .totals .t .val{font-family:"Reem Kufi",sans-serif; font-size:34px; font-weight:700; line-height:1}
+  .totals .t.A .val{color:var(--A)} .totals .t.B .val{color:var(--B)}
+  .totals .vs{font-family:"IBM Plex Mono",monospace; color:var(--faint); font-size:14px}
+
+  /* ---------- Deep-dive cards ---------- */
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .dd{border:1px solid var(--line); border-radius:14px; padding:18px 19px; background:var(--panel)}
+  .dd.A{border-right:3px solid var(--A)} .dd.B{border-right:3px solid var(--B)}
+  .dd h3{font-size:16px; margin:0 0 4px}
+  .dd .role{font-size:12.5px; color:var(--faint); font-family:"IBM Plex Mono",monospace; direction:ltr; margin-bottom:12px}
+  .dd ul{margin:0; padding:0; list-style:none}
+  .dd li{position:relative; padding:6px 0 6px 0; padding-right:20px; font-size:14px; color:var(--muted); border-bottom:1px solid var(--line)}
+  .dd li:last-child{border-bottom:0}
+  .dd li::before{content:""; position:absolute; right:2px; top:13px; width:7px; height:7px; border-radius:2px}
+  .dd.plus li::before{background:var(--ok)}
+  .dd.minus li::before{background:var(--bad)}
+  .dd li b{color:var(--fg); font-weight:600}
+  .dd .mono{font-size:12px}
+
+  /* ---------- Blind spots ---------- */
+  .gaps{margin-top:20px; display:grid; gap:12px}
+  .gap{display:grid; grid-template-columns:52px 1fr; border:1px solid var(--line); border-right:3px solid var(--gap); border-radius:13px; background:linear-gradient(180deg,var(--panel),var(--ink-2)); overflow:hidden}
+  .gap .n{background:var(--gap-soft); display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono",monospace; direction:ltr; font-size:19px; font-weight:600; color:var(--gap)}
+  .gap .body{padding:15px 18px}
+  .gap .body h3{font-size:15.5px; margin:0 0 5px; color:var(--fg)}
+  .gap .body p{margin:0; font-size:14px; color:var(--muted)}
+  .gap .body p b{color:var(--fg)}
+  .gap .body .why-user{margin-top:8px; font-size:12.5px; color:var(--gap); opacity:.92}
+
+  /* ---------- Recommendation ---------- */
+  .reco{border:1px solid var(--line-strong); border-radius:16px; padding:clamp(20px,3vw,30px); margin-top:20px;
+    background:linear-gradient(180deg,var(--panel-2),var(--ink-2))}
+  .reco h3{font-size:19px; margin:0 0 12px}
+  .reco p{color:var(--muted); margin:0 0 14px; max-width:72ch}
+  .reco .steps{display:grid; gap:10px; margin-top:8px}
+  .reco .step{display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; background:var(--ink-2); border:1px solid var(--line); border-radius:11px; padding:13px 15px}
+  .reco .step .k{font-family:"IBM Plex Mono",monospace; direction:ltr; color:var(--A); font-weight:600; font-size:13px}
+  .reco .step p{margin:0; font-size:14px; color:var(--fg)}
+  .reco .step p b{color:var(--A)}
+  .reco .step p .cite{color:var(--muted)}
+
+  /* ---------- Method note ---------- */
+  .note{margin-top:44px; border-top:1px solid var(--line); padding-top:20px; color:var(--faint); font-size:13px; line-height:1.8}
+  .note h3{font-size:14px; color:var(--muted); margin:0 0 8px; font-family:"IBM Plex Mono",monospace; direction:ltr; letter-spacing:1px}
+  .note code{font-family:"IBM Plex Mono",monospace; direction:ltr; background:var(--ink-2); border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:12px; color:var(--muted)}
+  .chip{display:inline-block; font-family:"IBM Plex Mono",monospace; direction:ltr; font-size:11.5px; padding:1px 7px; border-radius:20px; border:1px solid var(--line-strong); color:var(--muted)}
+  .chip.ok{color:var(--ok); border-color:rgba(127,209,140,.4)}
+  .chip.bad{color:var(--bad); border-color:rgba(243,128,107,.4)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .bar{animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes grow{from{width:0 !important}}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <p class="eyebrow">ADJUDICATION · AI-TEXT-DETECTION RESEARCH · 2026-07-18</p>
+    <h1>محكّ المقارنة: تحكيمٌ بين وكيلَي بحثٍ عن الأمرِ نفسه</h1>
+    <p class="thesis">الوكيلان يحلّان مسألةً واحدة بعقليّتين متضادّتين. <b>«أ» بنى كتالوجاً هندسياً</b> صالحاً لبناء أداة كشف مباشرةً؛ <b>«ب» كتب موجزاً تحليلياً</b> يشرح الميدان ويُحسن التحفّظ. لغرضِك أنت — بناء أدوات نزاهةٍ أكاديمية — <b>«أ» أقوى إجمالاً بفارقٍ متوسّط (نحو ٦٥/٣٥)</b>، لكنّ الأمثل دمجُ الاثنين، فلكلٍّ منهما ما يسدّ ثغرة الآخر.</p>
+    <span class="kbadge">مقياس التقييم: عشرة محاور، لكلٍّ منها الأفضلُ ودرجةُ الفارق · تُحقِّق صحّة كلّ ملفّ JSON · تُتحقَّق عيّنةٌ من الاستشهادات على arXiv فعليّاً</span>
+  </header>
+
+  <!-- ============ CONTENDERS ============ -->
+  <div class="contenders">
+    <div class="card A">
+      <span class="tag">CONTENDER · أ</span>
+      <h3><span class="dot"></span>الكتالوج الهندسيّ</h3>
+      <p class="zip">ai_detection_signals.zip</p>
+      <p class="persona">تقسيمٌ حسب نموذج الكشف: ١٠ ملفّات، كلُّ إشارةٍ لها مُعرِّف وعتبةٌ وصيغةٌ ودرجةُ ثقة. عقليّة «مَن يريد أن يبني كاشفاً غداً».</p>
+      <div class="stats">
+        <span class="stat"><b>١١</b> ملفّاً (١٠ JSON + README)</span>
+        <span class="stat mono">~40&nbsp;KB</span>
+        <span class="stat"><b>١٦٤</b> نمطاً فعليّاً <span style="color:var(--warn)">(يدّعي ١٧٤)</span></span>
+        <span class="stat"><span class="chip ok">10/10 JSON صالح</span></span>
+      </div>
+    </div>
+    <div class="card B">
+      <span class="tag">CONTENDER · ب</span>
+      <h3><span class="dot"></span>الموجز التحليليّ</h3>
+      <p class="zip">ai_text_detection_research_complete.zip</p>
+      <p class="persona">تقسيمٌ موضوعيّ: ٦ ملفّات نثريّة تشرح «لماذا» لكلّ إشارة، مع القيود والمخاطر. عقليّة «مَن يريد أن يفهم الميدان ويكتب عنه».</p>
+      <div class="stats">
+        <span class="stat"><b>٧</b> ملفّات (٦ JSON + README)</span>
+        <span class="stat mono">~57&nbsp;KB</span>
+        <span class="stat"><b>٨</b> أنماطٍ موسَّعة + كتالوجات</span>
+        <span class="stat"><span class="chip bad">5/6 JSON صالح</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VERDICT FIRST ============ -->
+  <section id="verdict">
+    <div class="sec-head"><span class="num">01</span><h2>الخلاصةُ أوّلاً</h2></div>
+    <p class="lede">إجاباتٌ مباشرة قبل التفصيل، لأنّ السؤال ذو شقّين: أيّهما أفضل؟ وعلى أيّ جانب؟</p>
+    <div class="verdict">
+      <div class="row"><div class="q">أيّهما أفضل إجمالاً؟</div><div class="a"><span class="win-A">«أ»</span> — لكن ليس مطلقاً. هو أقوى إذا كان هدفك <b>بناء أداةٍ أو قائمةِ فحصٍ قابلة للتنفيذ</b> (وهو الأرجح في سياق مِحَكّ/bio-colab). درجتي الإجمالية: أ ≈ <b>٧٫٤</b> / ب ≈ <b>٦٫٤</b>.</div></div>
+      <div class="row"><div class="q">ومتى يكون «ب» أفضل؟</div><div class="a">حين يكون الهدف <b>الفهم أو التدريس أو الكتابة المسؤولة</b> عن الموضوع. «ب» أوضحُ شرحاً، وأصدقُ في ذكر القيود، وأدقُّ في تمييزٍ مفهوميّ مهمٍّ يخلط فيه «أ».</div></div>
+      <div class="row"><div class="q">الفارق الحاسم لصالح «أ»؟</div><div class="a">الاتّساع والقابليّة للتطبيق: <b>١٦٤</b> إشارةً مُعرَّفةً بعتباتٍ وصيغٍ مقابل <b>٨</b> أنماطٍ عامّة، وتغطيةٌ لطبقاتٍ كاملة (بنيويّة + دلاليّة + هجمات العلامة المائيّة) يكاد «ب» يغفلها. وكلُّ ملفّاته صالحةٌ برمجياً.</div></div>
+      <div class="row"><div class="q">الفارق الحاسم لصالح «ب»؟</div><div class="a">الأمانة المعرفيّة: يُصرّح بمشكلة الإيجابيّات الكاذبة على غير الناطقين بالإنجليزية، وحساسيّة المجال، وسباق تسلّح «الأنسنة». كما يفصل بوضوحٍ بين «الأخضر المُلاحَظ» (GLTR) و«الأخضر المزروع» (قائمة Kirchenbauer) — تمييزٌ جوهريّ.</div></div>
+      <div class="row"><div class="q">أكبر عيبٍ في كلٍّ منهما؟</div><div class="a"><b>«أ»:</b> تضخيمُ العدد (١٧٤ مُعلَنة / ١٦٤ فعليّة، وكثيرٌ منها مكرَّرٌ عبر الملفّات) وثقةٌ رقميّةٌ زائفةٌ بلا منهج، وخطأٌ داخليّ في مُعرِّف Fast-DetectGPT. <b>«ب»:</b> أهمُّ ملفّاته — <span class="mono">key_academic_papers.json</span> — <b>مكسورٌ ولا يُقرأ برمجياً</b>.</div></div>
+    </div>
+  </section>
+
+  <!-- ============ SCORE CHART ============ -->
+  <section id="axes">
+    <div class="sec-head"><span class="num">02</span><h2>المحاور العشرة: مَن الأفضل، وإلى أيّ حدّ</h2></div>
+    <p class="lede">كلُّ محورٍ محسومٌ لصالح أحدهما بدرجةٍ ظاهرة. القضيبُ الأطولُ يفوز، وطولُ الفارقِ هو «إلى أيّ حدّ». الدرجات تقديريّةٌ من صفر إلى عشرة، وهي حكمي بناءً على المحتوى المفحوص.</p>
+    <div class="chart">
+      <div class="chart-legend">
+        <span class="side"><span class="sw" style="background:var(--B)"></span> ب — الموجز التحليليّ ⟵</span>
+        <span class="scaleNote">0 ··· 10</span>
+        <span class="side">⟶ أ — الكتالوج الهندسيّ <span class="sw" style="background:var(--A)"></span></span>
+      </div>
+
+      <!-- axes -->
+      <div class="axis">
+        <div class="top"><span class="name">اتّساع التغطية التقنيّة</span><span class="who a">الأفضل: أ · +4</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:25%">5.0</div><div class="bar a" style="width:45%">9.0</div></div>
+        <p class="why">«أ» يضمّ <span class="mono">Min-K% · LRR · NPR · Ghostbuster · DNA-GPT · Binoculars · TOCSIN · PHD · BiScope</span> وغيرها؛ «ب» يقتصر على ٨ أنماطٍ عامّة ويُغفل <span class="mono">Binoculars</span> كليّاً.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">الحبيبيّة والقابليّة للتطبيق</span><span class="who a">الأفضل: أ · +6</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:15%">3.0</div><div class="bar a" style="width:45%">9.0</div></div>
+        <p class="why">«أ» يعطي لكلّ إشارةٍ مُعرِّفاً وعتبةً وصيغةً (<span class="mono">PPL&lt;40 · z&gt;4 · TTR&lt;0.6</span>) — جاهزةٌ لمحرّك قواعد. «ب» نثريٌّ بلا عتباتٍ أو مُعرِّفات.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">عمق الشرح ووضوحه لكلّ بند</span><span class="who b">الأفضل: ب · +4</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:45%">9.0</div><div class="bar a" style="width:25%">5.0</div></div>
+        <p class="why">لكلّ نمطٍ في «ب»: وصفٌ + كيفيّة الكشف + آليّ/بشريّ + الأدوات + القيود. «أ» يضغط البند في كلماتٍ مفتاحيّةٍ أحياناً مبهمة (<span class="mono">generic centroid</span>).</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">دقّة المفاهيم والتمييزات المفتاحيّة</span><span class="who b">الأفضل: ب · +2.5</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:42.5%">8.5</div><div class="bar a" style="width:30%">6.0</div></div>
+        <p class="why">«ب» يفصل «الأخضر المُلاحَظ» (GLTR) عن «الأخضر المزروع» (Kirchenbauer) وبين الصندوقين الأسود/الأبيض بوضوح. «أ» يخلط طبقات «الأخضر».</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">دقّة الإسناد والمصادر</span><span class="who b">الأفضل: ب · +1</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:40%">8.0</div><div class="bar a" style="width:35%">7.0</div></div>
+        <p class="why">كلاهما يستند لأوراقٍ حقيقيّة (تحقّقتُ منها). لكنّ «أ» يحمل خطأً داخليّاً في مُعرِّف <span class="mono">Fast-DetectGPT</span> وثقةً رقميّةً بلا منهج؛ استشهادات «ب» أقلُّ عدداً وأدقُّ ترقيماً.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">الأمانة المعرفيّة وذكر القيود</span><span class="who b">الأفضل: ب · +4.5</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:42.5%">8.5</div><div class="bar a" style="width:20%">4.0</div></div>
+        <p class="why">«ب» يكرّر التنبيه على الإيجابيّات الكاذبة، وحساسيّة المجال، وسباق «الأنسنة». «أ» يعامل الكشف كقائمةِ فحصٍ شبه محسومة.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">سلامة البيانات والاتّساق الداخليّ</span><span class="who a">الأفضل: أ · +3.5</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:25%">5.0</div><div class="bar a" style="width:42.5%">8.5</div></div>
+        <p class="why">جميعُ ملفّات «أ» تُقرأ برمجياً؛ عيبُه تضخيمُ العدّ. أمّا «ب» فأحدُ ملفّاته الستّة (وأهمُّها) <b>JSON مكسور</b> لا يُحمَّل.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">الإشارات البنيويّة والدلاليّة</span><span class="who a">الأفضل: أ · +6</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:15%">3.0</div><div class="bar a" style="width:45%">9.0</div></div>
+        <p class="why">«أ» يفرد ملفّين للبنية (emoji-bullets · tricolon · em-dash · إفراط Markdown) والدلالة (استشهاداتٌ مهلوسة · تحيّزٌ ثقافيّ · إشارةٌ ذاتيّة). «ب» يلمسها لمساً.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">عمق العلامة المائيّة وهجماتها</span><span class="who a">الأفضل: أ · +3</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:30%">6.0</div><div class="bar a" style="width:45%">9.0</div></div>
+        <p class="why">«أ» يغطّي <span class="mono">SynthID tournament · SWEET · SEMSTAMP · Unigram · Gumbel</span> وهجمات (paraphrase · homoglyph · copy-paste · layer-inflation). «ب» يشرح Kirchenbauer جيّداً لكن يكتفي بالباقي عموماً.</p>
+      </div>
+
+      <div class="axis">
+        <div class="top"><span class="name">التنظيم وسهولة التصفّح</span><span class="who a">الأفضل: أ · +0.5</span></div>
+        <div class="meter"><div class="mid"></div><div class="bar b" style="width:37.5%">7.5</div><div class="bar a" style="width:40%">8.0</div></div>
+        <p class="why">تعادلٌ تقريباً. «أ» يضيف <span class="mono">master taxonomy</span> ومصفوفةَ إحالةٍ (الأمتن/الأسهل تهرّباً)؛ «ب» تقسيمٌ موضوعيٌّ نظيفٌ لكنّه أقلُّ ترابطاً.</p>
+      </div>
+
+      <div class="totals">
+        <div class="t B"><div class="lab">AGENT · ب</div><div class="val">6.4</div></div>
+        <div class="vs">— الإجماليّ (متوسّط) —</div>
+        <div class="t A"><div class="lab">AGENT · أ</div><div class="val">7.4</div></div>
+      </div>
+      <p class="why" style="text-align:center; margin-top:10px">فاز «أ» بستّة محاور و«ب» بأربعة — والمحاور التي حسمها «أ» هي الأثقلُ عمليّاً لبناء أداة.</p>
+    </div>
+  </section>
+
+  <!-- ============ DEEP DIVE ============ -->
+  <section id="dive">
+    <div class="sec-head"><span class="num">03</span><h2>قوّةُ كلٍّ وضعفُه — بالدليل</h2></div>
+    <p class="lede">ما سبق مختصر؛ وهذه الشواهد الملموسة التي بُنيت عليها الدرجات.</p>
+    <div class="grid2">
+      <div class="dd A plus">
+        <h3>«أ» — ما يتفوّق به</h3>
+        <p class="role">STRENGTHS · CATALOG</p>
+        <ul>
+          <li><b>اتّساعٌ نادر:</b> ١٦٤ إشارةً مُعرَّفة، لكلٍّ عتبةٌ/صيغةٌ/ثقة — أقربُ ما يكون إلى مواصفةِ محرّكٍ للكشف.</li>
+          <li><b>طبقاتٌ كاملة يغفلها الآخر:</b> ملفٌّ للبنية وآخر للدلالة، بما فيها الاستشهاداتُ المهلوسة كإشارةٍ قويّة.</li>
+          <li><b>عمقٌ في العلامة المائيّة:</b> بارامترات <span class="mono">γ, δ, h</span>، وهجماتٌ ودفاعاتٌ مقابلة.</li>
+          <li><b>مصفوفةُ إحالةٍ عليا:</b> «الأمتن» مقابل «الأسهل تهرّباً» مقابل «أقوى علامةٍ مائيّة».</li>
+          <li><b>انضباطٌ برمجيّ:</b> <span class="mono">10/10</span> ملفّات صالحة، ومُعرِّفاتٌ ثابتة تسهّل الربط.</li>
+        </ul>
+      </div>
+      <div class="dd A minus">
+        <h3>«أ» — ما يُؤخذ عليه</h3>
+        <p class="role">WEAKNESSES · CATALOG</p>
+        <ul>
+          <li><b>تضخيمٌ وتكرار:</b> يُعلن ١٧٤ والفعليّ ١٦٤، و«Perplexity» وحدها تتكرّر في <span class="mono">6/10</span> ملفّات — فعددُ الإشارات الفريدة أقلُّ بكثير.</li>
+          <li><b>ثقةٌ زائفة:</b> أرقامُ ثقةٍ (<span class="mono">0.96 · 0.93</span>) بلا منهجٍ لاشتقاقها؛ إيحاءُ حسمٍ لا تسنده الأدلّة.</li>
+          <li><b>خطأٌ داخليّ:</b> README يذكر <span class="mono">Fast-DetectGPT = 2310.05189</span> والصواب <span class="mono">2310.05130</span> (وملفّه ٠٤ نفسه يستعمل الصحيح).</li>
+          <li><b>إسنادٌ فضفاض:</b> المصادر غالباً على مستوى الملفّ لا البند، فالادّعاءات الحبيبيّة غيرُ موثّقةٍ فرديّاً.</li>
+          <li><b>قيودٌ شحيحة:</b> يكاد يخلو من تحذيرِ الإيجابيّات الكاذبة لكلّ إشارة.</li>
+        </ul>
+      </div>
+      <div class="dd B plus">
+        <h3>«ب» — ما يتفوّق به</h3>
+        <p class="role">STRENGTHS · BRIEF</p>
+        <ul>
+          <li><b>شرحٌ تعليميّ:</b> كلُّ نمطٍ يُروى «لماذا» يفرّق الآليّ عن البشريّ — يتعلّم منه المبتدئ.</li>
+          <li><b>تمييزٌ مفهوميّ ثمين:</b> يفصل بوضوحٍ «الأخضر المُلاحَظ» (GLTR post-hoc) عن «الأخضر المزروع» (تدخّلٌ أثناء التوليد).</li>
+          <li><b>صدقٌ في القيود:</b> الإيجابيّات الكاذبة، تلوّث البيانات، تعميمٌ ضعيفٌ على نماذجَ جديدة، «الأنسنة».</li>
+          <li><b>أدواتٌ راهنة:</b> يذكر <span class="mono">Hive · Pangram</span> ونماذجَ HF حديثة (<span class="mono">fakespot · Oxidane/TMR</span>) يغفلها «أ».</li>
+          <li><b>أمانةٌ في الفجوات:</b> يصرّح بأنّ تغطية ويكيبيديا هزيلة بدل حشوٍ زائف.</li>
+        </ul>
+      </div>
+      <div class="dd B minus">
+        <h3>«ب» — ما يُؤخذ عليه</h3>
+        <p class="role">WEAKNESSES · BRIEF</p>
+        <ul>
+          <li><b>ملفٌّ مكسور:</b> <span class="mono">key_academic_papers.json</span> غيرُ صالح (السطر ٤٢: قيمةُ سنةٍ مختلطةٌ بنصّ) — يفشل أيُّ استعمالٍ برمجيّ، وهو أهمّ ملفّاته.</li>
+          <li><b>ضحالةٌ عمليّة:</b> ٨ أنماطٍ فقط بلا مُعرِّفاتٍ أو عتباتٍ أو صيغ — لا يصلح محرّكَ قواعدٍ مباشرةً.</li>
+          <li><b>ثغراتُ تغطية:</b> يُغفل <span class="mono">Binoculars · Min-K% · LRR/NPR · Ghostbuster</span> وأكثرَ متغيّرات العلامة المائيّة.</li>
+          <li><b>طبقتان مفقودتان:</b> الإشاراتُ البنيويّة والدلاليّة (em-dash · emoji-bullets · إفراط Markdown) شبهُ غائبة.</li>
+          <li><b>حشوٌ تكراريّ:</b> فقراتُ «مراجعةٍ ذاتيّة» تتكرّر في كلّ ملفّ وتدّعي اكتمالاً تنقضه الثغرات.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOTH MISSED ============ -->
+  <section id="gaps">
+    <div class="sec-head"><span class="num">04</span><h2>ما الذي غفل عنه الاثنان معاً</h2></div>
+    <p class="lede">هذه ليست تفصيلاتٍ ثانويّة، بل هي — في تقديري — الثمانيةُ الأهمّ التي لو سُدَّت لتحوّل أيٌّ من العملين من «كتالوج إشاراتٍ» إلى «إطارِ كشفٍ مسؤول». والأحمرُ منها هو الأمسُّ بسياقك أنت.</p>
+    <div class="gaps">
+      <div class="gap"><div class="n">1</div><div class="body">
+        <h3>معدّلات الأساس والإيجابيّات الكاذبة وتحيّزها ضدّ كتّاب الإنجليزية لغةً ثانية</h3>
+        <p>يذكر الاثنان الإيجابيّاتِ الكاذبةَ عرَضاً، لكن لا أحدَ يعالج الحقيقة الإحصائيّة: عند معدّلِ انتشارٍ واقعيّ، حتّى <b>١٪ خطأٍ إيجابيّ</b> يُنتج اتّهاماتٍ باطلةً كثيرة، والكواشفُ موثَّقٌ انحيازُها ضدّ غير الناطقين بالإنجليزية.</p>
+        <p class="why-user">◂ الأمسُّ بسياقك: طلّابك العراقيّون يكتبون الإنجليزية لغةً ثانية — هذه الثغرةُ ليست نظريّة عندهم.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">2</div><div class="body">
+        <h3>الحدُّ النظريّ: هل الكشفُ الموثوق ممكنٌ أصلاً؟</h3>
+        <p>لا أحدَ يشتبك مع جدل الاستحالة (<span class="mono">Sadasivan 2303.11156</span> و<span class="mono">Chakraborty</span>): كلّما اقترب النموذجُ من توزيع البشر، تدنّى سقفُ أيّ كاشف. «أ» يذكر المُعرِّف مرّةً دون أن يناقش حجّته، و«ب» يغفله.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">3</div><div class="body">
+        <h3>الكشفُ في غير الإنجليزية — والعربيّةُ تحديداً</h3>
+        <p>حصر الاثنان نفسيهما في الإنجليزية دون التنبيه إلى أنّ <b>كلَّ هذه الإشارات تنهار تقريباً على العربيّة</b>، وأنّ كشفَ النصّ العربيّ المولَّد مشكلةٌ مستقلّةٌ غيرُ مخدومة — ولو كسطرِ «حدودٍ وأعمالٍ مستقبليّة».</p>
+        <p class="why-user">◂ الأمسُّ بسياقك: جُلُّ إنتاجك عربيّ؛ كتالوجٌ إنجليزيٌّ صرفٌ لا يُسقَط على أدوات مِحَكّ دون بحثٍ جديد.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">4</div><div class="body">
+        <h3>النصوصُ المختلطة (بشريّ + آليّ) — وهي الحالةُ الأشيع</h3>
+        <p>كلاهما يعامل المسألةَ ثنائيّةً (آليّ ضدّ بشريّ)، بينما الواقعُ الغالب: بشريٌّ يصوغ فيحرّر الذكاءُ، أو العكس. الكشفُ على مستوى الجملة/النسبة، وكونُ المختلطِ أصعبَ الحالات، شبهُ غائبٍ عند الاثنين.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">5</div><div class="body">
+        <h3>أدلّةُ المصدر خارج النصّ نفسه</h3>
+        <p>ركّز الاثنان على الإشارات الداخليّة فقط. لا ذكرَ <b>لبيانات التعريف، وتاريخ التحرير/النسخ، وديناميكا الكتابة، والبصمة الأسلوبيّة مقابل مؤلّفٍ معروف</b> — وهي عمليّاً أوثقُ في النزاهة الأكاديميّة من أيّ مصنِّف.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">6</div><div class="body">
+        <h3>نقدُ ادّعاءات الدقّة التجاريّة ومنهجيّة القياس</h3>
+        <p>يسرد «أ» أرقاماً كـ<span class="mono">99.98%</span> دون تمحيص، و«ب» أكثرُ تحفّظاً لكنّه لا يُمنهج المشكلة: هذه الأرقامُ تنهار خارج التوزيع، والمعاييرُ تتلوّث، و«الدقّة» بلا تحديدِ المولِّد/المجال/معدّلِ الخطأ بلا معنى.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">7</div><div class="body">
+        <h3>المعايرة ودمجُ الإشارات وأثرُ طول النصّ</h3>
+        <p>لا أحدَ يشرح كيف تُحوَّل إشارةٌ خامٌّ إلى احتمالٍ مُعايَر، ولا كيف تُدمَج الإشاراتُ بأوزانٍ سليمة (تجميعةُ «أ» ساذجةٌ بلا ترجيح)، ولا لماذا يكون النصُّ القصيرُ غيرَ موثوقٍ بنيويّاً.</p>
+      </div></div>
+
+      <div class="gap"><div class="n">8</div><div class="body">
+        <h3>تقادُمُ الإشارة (نصفُ عمرها)</h3>
+        <p>كلا العملين لقطةٌ ساكنة. لا تنبيهَ إلى أنّ الإشارات تُبطَل عمداً في النماذج الأحدث (خُفِّض «delve» والـ<span class="mono">em-dash</span> بعد أن اشتُهرا كعلامات)، فعمرُ أيّ تصنيفٍ ثابتٍ قصير، ويحتاج خطّةَ رصدٍ ومراجعةٍ دوريّة.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATION ============ -->
+  <section id="reco">
+    <div class="sec-head"><span class="num">05</span><h2>التوصيةُ العمليّة لسياقك</h2></div>
+    <div class="reco">
+      <h3>لا تختر أحدهما — ادمجهما بتراتبٍ واضح</h3>
+      <p>بما أنّك تبني أدواتِ نزاهةٍ أكاديميّة (مِحَكّ / bio-colab)، فالقيمةُ القصوى في أخذِ هيكل «أ» العمليّ وتغليفه بأمانة «ب» المعرفيّة، ثمّ سدِّ الثغرات الثماني. عمليّاً:</p>
+      <div class="steps">
+        <div class="step"><span class="k">01</span><p>اجعل <b>كتالوج «أ»</b> هو العمودَ الفقريّ للمحرّك (المُعرِّفات والعتبات والصيغ)، بعد <span class="cite">تصحيح مُعرِّف Fast-DetectGPT إلى <span class="mono">2310.05130</span>، وحذف تكرار الإشارات، وإسقاط أرقام الثقة غير المُعايَرة.</span></p></div>
+        <div class="step"><span class="k">02</span><p>خُذ من <b>«ب»</b> طبقةَ <span class="cite">الشرح والقيود لكلّ إشارة، وتمييزَ «الأخضر المُلاحَظ» عن «المزروع»، وإطارَ الأسود/الأبيض — واصلح ملفَّه المكسور أوّلاً.</span></p></div>
+        <div class="step"><span class="k">03</span><p>أضِف <b>ما غفلا عنه</b>: طبقةَ معايرةٍ وإيجابيّاتٍ كاذبةٍ حسّاسةً لغير الناطقين، وأدلّةَ المصدر خارج النصّ، ومعالجةَ النصّ المختلط.</p></div>
+        <div class="step"><span class="k">04</span><p>افتح مساراً صريحاً <b>للعربيّة</b>: لا تُسقِط الكتالوج الإنجليزيّ كما هو؛ عامله فرضيّاتٍ تحتاج تحقّقاً على نصوصٍ عربيّةٍ مولَّدة قبل الاعتماد.</p></div>
+      </div>
+      <p style="margin-top:16px; margin-bottom:0"><b style="color:var(--fg)">حكمٌ مكثّف:</b> «أ» هو المادّةُ الخام الأثمن، و«ب» هو الضميرُ المنهجيّ. اعتمِد «أ» أساساً، وقوّمه بـ«ب»، وابنِ فوقهما الثغراتِ الثماني.</p>
+    </div>
+  </section>
+
+  <!-- ============ METHOD NOTE ============ -->
+  <div class="note">
+    <h3>MENTS ON METHOD · كيف قُيِّم هذا</h3>
+    <p>
+      فُكَّ الأرشيفان وقُرئت جميعُ ملفّاتهما (١١ لـ«أ»، ٧ لـ«ب»). تُحقِّق صحّةُ كلّ ملفّ JSON عبر <code>json.load</code>: نتيجةُ «أ» <span class="chip ok">10/10 صالح</span> ونتيجةُ «ب» <span class="chip bad">5/6 · key_academic_papers.json مكسور</span>. عُدّت أنماطُ «أ» فعليّاً (<code>164</code> مقابل <code>174</code> مُعلَنة) وقيست نسبةُ التكرار عبر الملفّات.
+      وتُحقِّقت عيّنةٌ من الاستشهادات على arXiv مباشرةً: <code>2412.11385</code> (ورقة «delve») و<code>2310.05130</code> (Fast-DetectGPT) و<code>2401.12070</code> (Binoculars) و<code>2509.18880</code> (DivEye) و<code>2510.05136</code> (مسح ٢٠٢٥) — كلُّها حقيقيّةٌ ومطابقةٌ لوصف الوكيلين؛ فلا اختلاقَ مصادر لدى أيٍّ منهما في العيّنة.
+      الدرجاتُ العدديّة على المحاور العشرة حكمٌ تقديريّ مبنيٌّ على هذا الفحص، لا قياسٌ آليّ؛ والوزنُ الإجماليّ يميل عمداً نحو الغرض العمليّ (بناء أداة) الذي يناسب سياقك. لم يتيسّر التحقّقُ من صحّة كلّ مُعرِّفٍ حديثٍ (٢٠٢٦) لدى الطرفين، وهي مخاطرةٌ مشتركةٌ ينبغي التحقّق منها قبل الاستشهاد.
+    </p>
+    <p style="margin-top:10px">تحكيمٌ أُجري في ١٨ تمّوز ٢٠٢٦ · التقييمُ اجتهاديّ ويقبل المراجعة.</p>
+  </div>
+
+</div>
+</body>
+</html>

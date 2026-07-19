@@ -1,0 +1,144 @@
+{
+  "file_name": "05_white_box_detection.json",
+  "category": "white_box_detection",
+  "description": "كشف الصندوق الأبيض يتطلب logits",
+  "total_patterns": 19,
+  "patterns": [
+    {
+      "id": "WB-001",
+      "name": "Mean Log Probability",
+      "threshold": ">-2.0 AI",
+      "confidence": 0.92
+    },
+    {
+      "id": "WB-002",
+      "name": "Perplexity Threshold",
+      "threshold": "<30-50 AI",
+      "confidence": 0.89
+    },
+    {
+      "id": "WB-003",
+      "name": "Average Token Rank",
+      "threshold": "95% rank1 AI",
+      "confidence": 0.9
+    },
+    {
+      "id": "WB-004",
+      "name": "LogRank Average",
+      "threshold": "0.8 AI vs 2.4 human",
+      "confidence": 0.91
+    },
+    {
+      "id": "WB-005",
+      "name": "Top-K Bucket GLTR",
+      "method": "green 70-90% AI",
+      "confidence": 0.88
+    },
+    {
+      "id": "WB-006",
+      "name": "Entropy Low",
+      "threshold": "1.2 AI vs 3.8 human",
+      "confidence": 0.84
+    },
+    {
+      "id": "WB-007",
+      "name": "LRR Ratio",
+      "formula": "|mean logP| / mean logRank",
+      "confidence": 0.9
+    },
+    {
+      "id": "WB-008",
+      "name": "DetectGPT Curvature",
+      "method": "100 T5 perturbations",
+      "confidence": 0.93
+    },
+    {
+      "id": "WB-009",
+      "name": "Fast-DetectGPT",
+      "method": "conditional curvature 100x faster",
+      "confidence": 0.94
+    },
+    {
+      "id": "WB-010",
+      "name": "Binoculars Cross-PPL",
+      "formula": "PPL1 / X-PPL12",
+      "confidence": 0.92
+    },
+    {
+      "id": "WB-011",
+      "name": "Min-K% Prob",
+      "method": "lowest 20% avg -5.2 human vs -1.1 AI",
+      "confidence": 0.87
+    },
+    {
+      "id": "WB-012",
+      "name": "Min-K%++ Normalized",
+      "method": "(logp - mu)/sigma",
+      "confidence": 0.88
+    },
+    {
+      "id": "WB-013",
+      "name": "KGW Green-Red Watermark with Key",
+      "formula": "z = (count_G - gammaN)/sqrt(N gamma(1-gamma))",
+      "threshold": "z>4",
+      "confidence": 0.97
+    },
+    {
+      "id": "WB-014",
+      "name": "Unigram Fixed List",
+      "description": "fixed green list robust",
+      "confidence": 0.93
+    },
+    {
+      "id": "WB-015",
+      "name": "Gumbel Exponential Distortion-free",
+      "description": "PRF key",
+      "confidence": 0.9
+    },
+    {
+      "id": "WB-016",
+      "name": "SynthID Tournament",
+      "description": "g-value mean >0.5",
+      "confidence": 0.91
+    },
+    {
+      "id": "WB-017",
+      "name": "BiScope Forward-Backward",
+      "method": "forward low + backward high",
+      "confidence": 0.86
+    },
+    {
+      "id": "WB-018",
+      "name": "DNA-GPT Divergence Whitebox",
+      "method": "BLEU 0.85 AI vs 0.25 human",
+      "confidence": 0.9
+    },
+    {
+      "id": "WB-019",
+      "name": "Top1 vs Top2 Logit Gap",
+      "method": "gap large for AI",
+      "confidence": 0.85
+    }
+  ],
+  "references": {
+    "papers": [
+      "GLTR 1906.04043",
+      "DetectGPT 2301.11305",
+      "Kirchenbauer 2301.10226",
+      "Binoculars 2401.12070"
+    ],
+    "github": [
+      "lm-watermarking",
+      "fast-detect-gpt",
+      "synthid-text"
+    ],
+    "huggingface": [
+      "gpt2",
+      "Falcon-7B"
+    ],
+    "wikipedia": [
+      "Perplexity",
+      "Logit"
+    ]
+  }
+}

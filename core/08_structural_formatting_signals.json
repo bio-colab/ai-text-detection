@@ -1,0 +1,150 @@
+{
+  "file_name": "08_structural_formatting_signals.json",
+  "category": "structural_formatting",
+  "description": "الإشارات البنيوية والتنسيقية",
+  "total_patterns": 20,
+  "patterns": [
+    {
+      "id": "STRUCT-001",
+      "name": "Emoji Bullet Prefix",
+      "pattern": "every bullet emoji",
+      "threshold": ">70% bullets start emoji",
+      "confidence": 0.92
+    },
+    {
+      "id": "STRUCT-002",
+      "name": "Tricolon Rule of Three",
+      "pattern": "3 items always",
+      "confidence": 0.94
+    },
+    {
+      "id": "STRUCT-003",
+      "name": "Uniform Paragraph Length",
+      "pattern": "82,78,85 CV<0.25",
+      "confidence": 0.88
+    },
+    {
+      "id": "STRUCT-004",
+      "name": "Repetitive Sentence Template",
+      "pattern": "This allows... This ensures...",
+      "confidence": 0.9
+    },
+    {
+      "id": "STRUCT-005",
+      "name": "Formulaic Intro Opener",
+      "pattern": "In today's fast-paced world",
+      "confidence": 0.95
+    },
+    {
+      "id": "STRUCT-006",
+      "name": "Formulaic Conclusion",
+      "pattern": "In conclusion Ultimately",
+      "confidence": 0.93
+    },
+    {
+      "id": "STRUCT-007",
+      "name": "Markdown Overstructuring",
+      "pattern": "## Intro ## What is X ## Benefits",
+      "confidence": 0.85
+    },
+    {
+      "id": "STRUCT-008",
+      "name": "Bold Keyword Stuffing",
+      "pattern": "**Efficiency:**",
+      "threshold": ">4 per 100 words",
+      "confidence": 0.89
+    },
+    {
+      "id": "STRUCT-009",
+      "name": "Fixed Bullet Count 3-5",
+      "pattern": "all lists 3 bullets",
+      "confidence": 0.91
+    },
+    {
+      "id": "STRUCT-010",
+      "name": "Em Dash Overuse",
+      "pattern": "word — phrase",
+      "threshold": "0.3 human vs 2.8 AI",
+      "confidence": 0.87
+    },
+    {
+      "id": "STRUCT-011",
+      "name": "Rigid Intro-Body-Conclusion",
+      "pattern": "15%:60%:15%",
+      "confidence": 0.86
+    },
+    {
+      "id": "STRUCT-012",
+      "name": "Low Burstiness Uniform Sentence",
+      "pattern": "18,20,19,21 std1.2 vs 4,28,12,35 std11.4",
+      "confidence": 0.94
+    },
+    {
+      "id": "STRUCT-013",
+      "name": "Transitional Adverb Chain",
+      "pattern": "Moreover Furthermore Additionally sequential",
+      "confidence": 0.84
+    },
+    {
+      "id": "STRUCT-014",
+      "name": "Multiple Conclusions",
+      "pattern": "In conclusion... later In summary",
+      "confidence": 0.83
+    },
+    {
+      "id": "STRUCT-015",
+      "name": "Definition Colon Pattern",
+      "pattern": "**ML:** A subset",
+      "confidence": 0.88
+    },
+    {
+      "id": "STRUCT-016",
+      "name": "Emoji+Bold+Colon Combo",
+      "pattern": "🚀 **Efficiency:**",
+      "confidence": 0.96
+    },
+    {
+      "id": "STRUCT-017",
+      "name": "Parallel Grammatical Lists",
+      "pattern": "all V-ing",
+      "method": "POS entropy <0.5",
+      "confidence": 0.82
+    },
+    {
+      "id": "STRUCT-018",
+      "name": "Title Case Headings",
+      "pattern": "Why This Matters",
+      "confidence": 0.75
+    },
+    {
+      "id": "STRUCT-019",
+      "name": "Perfect Symmetry Paragraph Openers",
+      "pattern": "This technology enables/provides",
+      "confidence": 0.86
+    },
+    {
+      "id": "STRUCT-020",
+      "name": "Rhetorical QA Pattern",
+      "pattern": "What does this mean? It means...",
+      "confidence": 0.79
+    }
+  ],
+  "references": {
+    "papers": [
+      "2501.15654",
+      "StyleDecipher 2510.12608",
+      "RADAR 2307.03838"
+    ],
+    "github": [
+      "human_detectors",
+      "StyleDecipher"
+    ],
+    "huggingface": [
+      "RADAR-AI-Text-Detector"
+    ],
+    "wikipedia": [
+      "Tricolon",
+      "Markdown"
+    ]
+  }
+}

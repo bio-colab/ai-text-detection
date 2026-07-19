@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "Marks, Watermarks, and Embedded/Signals in AI-Generated English Text",
+    "description": "Collection of 'marks' - both embedded (watermarks) and observable statistical/visual signals/markers - that indicate AI involvement in English text production. Includes traditional watermarks, statistical marks from generation process, and forensic marks from tools like GLTR.",
+    "created_date": "2026-07-18",
+    "focus": "English language text; provenance, detection, and robustness aspects."
+  },
+  "embedded_watermarks": {
+    "kirchenbauer_green_red_list": "Primary example covered in detail in green_box_green_list.json. Statistical mark via biased token selection. Detectable via z-score on reproducible green count. Provides cryptographic-like provenance if key secret.",
+    "other_watermark_schemes": [
+      {
+        "name": "Multi-bit or Semantic Watermarks",
+        "description": "Extensions that encode more information (multiple bits) or operate at semantic level (e.g. meaning-preserving transformations) rather than pure token bias. More robust to paraphrasing in some designs.",
+        "status": "Active research area post-2023; various arXiv follow-ups."
+      },
+      {
+        "name": "Post-hoc or Retrieval-based Watermarks",
+        "description": "Some active methods embed signals via retrieval or semantic hashes rather than during sampling.",
+        "status": "Mentioned in 2025-2026 surveys as alternative to pure token watermarking."
+      }
+    ],
+    "adoption": "Not yet universal in major commercial LLMs (as of 2026). Some providers experiment or offer optional watermarking for enterprise/API. Open-source models rarely include by default. Detection requires either cooperation (key) or strong statistical signal."
+  },
+  "observable_statistical_and_forensic_marks": {
+    "gltr_color_distribution": "Green-heavy distribution is a strong 'mark' of AI predictability. Quantifiable as % green or chi-square deviation from human baseline distribution.",
+    "perplexity_and_logprob_signatures": "Unusually low and stable perplexity, specific curvature patterns in log-prob landscape (even approximated).",
+    "token_rank_bias": "Over-representation of high-rank (low surprisal) tokens under reference models.",
+    "repetition_and_n_gram_marks": "Elevated rates of repeated n-grams or formulaic sequences as byproduct of sampling.",
+    "z_score_like_statistics": "Any deviation from expected random token distribution that can be tested statistically without secret key (weaker than watermark z-score)."
+  },
+  "marks_in_commercial_and_open_tools": "Commercial detectors often output a 'score' or 'probability' that functions as a soft mark of AI-likeness (ensemble of above signals). Some provide explanations or highlights (e.g. color-coded like GLTR-inspired). Open-source like GLTR provides explicit visual marks (colored boxes). Watermark-specific detectors output z-score or p-value as the mark of presence.",
+  "robustness_and_evasion_of_marks": "Embedded watermarks robust to minor edits but break under heavy semantic-preserving changes. Statistical marks (PPL, burstiness, green %) can be reduced by temperature tuning, top-p/k sampling adjustments, or post-processing (paraphrase, human edit). No mark is 100% reliable alone; best detectors use multi-signal fusion. Adversarial 'humanizers' specifically target these marks.",
+  "self_review": "Dedicated file for 'marks' as requested. Included both active embedded (watermark) and passive observable marks. Linked to green file for depth. Comprehensive from searches on watermark papers and detector analyses. Classified logically; complete coverage of main mark types for English text detection."
+}

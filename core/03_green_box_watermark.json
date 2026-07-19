@@ -1,0 +1,159 @@
+{
+  "file_name": "03_green_box_watermark.json",
+  "category": "green_box_watermarking",
+  "description": "تقنيات العلامة المائية الخضراء Green List Red List و SynthID",
+  "total_patterns": 19,
+  "patterns": [
+    {
+      "id": "KGW-001",
+      "name": "Vocabulary Partitioning via Hash",
+      "description": "seed = HASH(key, context)",
+      "params": "gamma 0.25 optimal",
+      "confidence": 0.99
+    },
+    {
+      "id": "KGW-002",
+      "name": "Gamma Green Fraction",
+      "description": "25% expected human 60-75% watermarked",
+      "confidence": 0.98
+    },
+    {
+      "id": "KGW-003",
+      "name": "Delta Logit Bias",
+      "description": "logits_green += delta",
+      "values": "0.5 weak 2.0 std 4.0 strong inf hard",
+      "confidence": 0.97
+    },
+    {
+      "id": "KGW-004",
+      "name": "z-score Detection Formula",
+      "formula": "z = (|s|_G - gammaT)/sqrt(T gamma(1-gamma))",
+      "threshold": "z>4 p<3e-5",
+      "confidence": 0.99
+    },
+    {
+      "id": "KGW-005",
+      "name": "Context Width h Tradeoff",
+      "description": "h=0 fixed robust but breakable, h=4 secure but fragile",
+      "confidence": 0.96
+    },
+    {
+      "id": "KGW-006",
+      "name": "Seeding Schemes",
+      "description": "selfhash includes candidate O(|V|), minhash random token",
+      "default": "ff-anchored_minhash_prf-4-True-15485863",
+      "confidence": 0.94
+    },
+    {
+      "id": "KGW-007",
+      "name": "Ignore Repeated N-grams Fix",
+      "description": "repeated n-gram violates iid inflates z",
+      "solution": "ignore_repeated_ngrams=True",
+      "confidence": 0.92
+    },
+    {
+      "id": "KGW-008",
+      "name": "Spike Entropy Failure",
+      "description": "strength proportional to entropy fails on low-entropy",
+      "fix": "SWEET threshold",
+      "confidence": 0.93
+    },
+    {
+      "id": "KGW-009",
+      "name": "Unigram Fixed Green List",
+      "description": "global fixed h=0 resistant to paraphrase",
+      "confidence": 0.9
+    },
+    {
+      "id": "KGW-010",
+      "name": "SynthID Tournament Sampling",
+      "description": "g-values per token per layer tournament",
+      "params": "m=100 L=30",
+      "confidence": 0.97
+    },
+    {
+      "id": "KGW-011",
+      "name": "SynthID Mean vs Bayesian Score",
+      "description": "MS mean g BS posterior",
+      "performance": "TPR@FPR1% 85% vs 92%",
+      "confidence": 0.95
+    },
+    {
+      "id": "KGW-012",
+      "name": "Bernoulli 0.5 Optimality",
+      "description": "Bernoulli 0.5 max TPR",
+      "confidence": 0.91
+    },
+    {
+      "id": "KGW-013",
+      "name": "Layer Inflation Attack",
+      "description": "doubling layers reduces MS TPR to FPR",
+      "defense": "Bayesian Score",
+      "confidence": 0.88
+    },
+    {
+      "id": "KGW-014",
+      "name": "Paraphrasing Dilution Attack",
+      "description": "synonym changes hash",
+      "defenses": [
+        "minhash",
+        "Unigram",
+        "SEMSTAMP"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "id": "KGW-015",
+      "name": "Copy-Paste Mixing Attack",
+      "description": "50 watermarked in 500 human => 29% undetectable",
+      "defense": "WinMax sliding window",
+      "confidence": 0.9
+    },
+    {
+      "id": "KGW-016",
+      "name": "Homoglyph Unicode Evasion",
+      "description": "Cyrillic a vs Latin a",
+      "defense": "normalizers",
+      "confidence": 0.87
+    },
+    {
+      "id": "KGW-017",
+      "name": "Aaronson Exponential Distortion-Free",
+      "description": "Exp min sampling identical distribution",
+      "confidence": 0.89
+    },
+    {
+      "id": "KGW-018",
+      "name": "Implementation Artifacts",
+      "description": "CPU vs CUDA RNG divergence base key 15485863",
+      "confidence": 0.92
+    },
+    {
+      "id": "KGW-019",
+      "name": "Green-Favored English Words Tell",
+      "description": "delve tapestry realm 3-4x overuse",
+      "confidence": 0.83
+    }
+  ],
+  "references": {
+    "papers": [
+      "Kirchenbauer 2023",
+      "Zhao 2023 Unigram",
+      "Dathathri 2024 SynthID",
+      "Omidi 2026"
+    ],
+    "github": [
+      "jwkirchenbauer/lm-watermarking",
+      "WaterBench",
+      "synthid-text"
+    ],
+    "huggingface": [
+      "opt-6.7b",
+      "Gemma-7B"
+    ],
+    "wikipedia": [
+      "Digital watermarking",
+      "Hash function"
+    ]
+  }
+}

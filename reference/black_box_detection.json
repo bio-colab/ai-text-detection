@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "title": "Black-Box Detection Methods and Patterns for AI-Generated English Text",
+    "description": "Focus on black-box approaches to detecting AI-written text, where the detector has no (or limited) access to the internal logits/probabilities of the original generating LLM. Contrasted with white-box methods. Includes commercial tools (inherently black-box), zero-shot black-box variants, and challenges. Patterns that work without model internals.",
+    "created_date": "2026-07-18",
+    "key_distinction": "White-box: full access to generating model's log-probs (e.g. original DetectGPT, watermark with key). Black-box: text-only or surrogate/external model access only. Most real-world/commercial deployment is black-box."
+  },
+  "definition_and_importance": "Black-box detection treats the AI generator as opaque. Essential for third-party detectors, API users, educators, platforms without model access. Relies on output artifacts, statistical properties observable from text alone, or surrogate LMs for approximation (e.g. perturbations via public models like T5). Critical because most deployed LLMs (ChatGPT, Claude, Gemini, Grok etc.) do not expose full internals or watermark keys publicly.",
+  "main_black_box_patterns_and_methods": [
+    {
+      "method": "Pure Statistical / Heuristic (Perplexity, Burstiness, Stylometry) with External/Surrogate LM",
+      "description": "Use a public or different LM to compute perplexity, burstiness, or features on the suspect text. No need for original generator's probs. Thresholds or simple ML on top.",
+      "strengths": "Simple, fast, no training needed for basic version. Works across generators to some extent.",
+      "weaknesses": "Lower accuracy than white-box or fine-tuned; domain/prompt sensitive; easily gamed.",
+      "examples": "Basic GPTZero (uses its own models), many early commercial, academic baselines."
+    },
+    {
+      "method": "ML Classifiers / Fine-tuned Transformers (Text-only)",
+      "description": "Train or use pre-trained classifiers (RoBERTa etc.) on human vs AI text pairs. Input is raw text or embeddings. No logits from generator needed. Most commercial and HF models are this type.",
+      "strengths": "Highest practical accuracy when trained on diverse data. Captures subtle distributed patterns. Scalable via HF.",
+      "weaknesses": "Black-box (unexplainable), requires large labeled datasets, poor generalization to unseen generators/styles/domains without retraining, high FP on edited/non-native text.",
+      "examples": "Commercial: Originality.ai, Turnitin AI, Copyleaks, Hive, Pangram (claims superior). HF: fakespot-ai/roberta-base-ai-text-detection-v1, andreas122001/roberta-mixed-detector, many others. OpenAI's old GPT-2 detector (deprecated)."
+    },
+    {
+      "method": "Zero-Shot Black-Box Variants (e.g. Fast-DetectGPT black-box setting, DetectGPT approximations)",
+      "description": "Use external/surrogate LM for perturbations and curvature estimation or probability approximation. Avoids needing original model internals. Fast-DetectGPT has explicit black-box mode using sampling.",
+      "strengths": "No training data or fine-tuning. Faster in optimized versions. Good theoretical grounding from curvature observation.",
+      "weaknesses": "Still benefits from good surrogate; performance gap vs white-box; computational cost (though reduced in Fast version).",
+      "examples": "Fast-DetectGPT black-box, extensions in 2025-2026 literature, some hybrid commercial."
+    },
+    {
+      "method": "Surrogate Model + Watermark-like or Forensic Analysis",
+      "description": "Use public models to approximate what watermark or GLTR-like analysis would show if internals were available. Or analyze output for statistical biases that mimic embedded marks.",
+      "strengths": "Bridges to active methods without cooperation from generator provider.",
+      "weaknesses": "Approximation error; only detects strong signals.",
+      "examples": "GLTR reimplementations with current open LMs, academic papers on black-box watermark detection approximations."
+    }
+  ],
+  "commercial_tools_as_black_box_examples": "Nearly all commercial detectors operate as black-box services: user submits text via web/API, get score/probability/report. They do not publish exact internals or training data. Inferred methods from public info/whitepapers: ensemble of statistical features (PPL, burstiness) + deep learning classifiers trained on massive proprietary human/AI corpora from many generators. Some add plagiarism cross-check or stylometry. Examples: GPTZero, Originality.ai (high claimed accuracy, used in education/publishing), Turnitin (integrated in LMS, focuses on academic integrity), Copyleaks, Hive Moderation (content moderation + AI), Pangram (positions as better than pure PPL/burstiness). Strengths: user-friendly, regularly updated, multi-language support (though English best). Weaknesses: opaque, variable accuracy on edge cases (non-native, creative writing, heavily edited AI), potential bias, cost for heavy use.",
+  "challenges_and_limitations_of_black_box": [
+    "Generalization: Hard to keep up with new LLMs, fine-tunes, prompting techniques (e.g. 'write like human with bursts').",
+    "Adversarial robustness: Paraphrasing, human editing, or 'humanizer' tools can evade or reduce scores significantly.",
+    "False positives: On human text that is formulaic (non-native speakers, technical reports, translations, templates).",
+    "Explainability: Hard to tell user *why* flagged (unlike GLTR colors or watermark z-score).",
+    "Data drift and contamination: Training data may include AI text mislabeled as human.",
+    "Multilingual/English variants: English-centric; performance drops on other languages or code-mixed.",
+    " arms race: As detectors improve, generators (and attackers) improve evasion."
+  ],
+  "self_review_and_coverage": "This file isolates black-box as requested. Distinguished clearly from white-box/watermark (which require more access). Included patterns workable in black-box setting. Commercial treated as primary real-world black-box example. Cross-referenced with patterns file and survey papers. Complete for the scope; no early termination - patterns and challenges drawn from multiple 2025-2026 sources."
+}

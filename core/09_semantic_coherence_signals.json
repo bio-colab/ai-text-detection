@@ -1,0 +1,147 @@
+{
+  "file_name": "09_semantic_coherence_signals.json",
+  "category": "semantic_coherence",
+  "description": "الإشارات الدلالية والمعرفية",
+  "total_patterns": 21,
+  "patterns": [
+    {
+      "id": "SEM-001",
+      "name": "Hallucination Confabulation",
+      "detection": "NLI + retrieval + semantic entropy",
+      "confidence": 0.93
+    },
+    {
+      "id": "SEM-002",
+      "name": "Fabricated Citations 47% 2024",
+      "detection": "Crossref API",
+      "confidence": 0.95
+    },
+    {
+      "id": "SEM-003",
+      "name": "Generic Knowledge Without Sources",
+      "detection": "NER density <0.03",
+      "confidence": 0.84
+    },
+    {
+      "id": "SEM-004",
+      "name": "Lack of Personal Experience",
+      "detection": "personal grounding classifier",
+      "confidence": 0.88
+    },
+    {
+      "id": "SEM-005",
+      "name": "Hedging Overuse 30-60% vs <5%",
+      "density": ">0.4 => AI",
+      "confidence": 0.91
+    },
+    {
+      "id": "SEM-006",
+      "name": "Overly Balanced Viewpoint",
+      "detection": "VADER neutrality >0.7",
+      "confidence": 0.87
+    },
+    {
+      "id": "SEM-007",
+      "name": "Repetitive Semantic Loops",
+      "detection": "cosine >0.85 consecutive",
+      "confidence": 0.89
+    },
+    {
+      "id": "SEM-008",
+      "name": "Overly Safe Content Alignment",
+      "detection": "toxicity ~0.0 + disclaimers",
+      "confidence": 0.82
+    },
+    {
+      "id": "SEM-009",
+      "name": "Absence Idioms Cultural Nuance",
+      "pattern": "idiom + which means + definition",
+      "confidence": 0.85
+    },
+    {
+      "id": "SEM-010",
+      "name": "Corporate Filler Openings",
+      "detection": "template 30% AI blogs",
+      "confidence": 0.9
+    },
+    {
+      "id": "SEM-011",
+      "name": "Intensifier Inflation crucial vital",
+      "detection": "ADJ/NOUN >0.33",
+      "confidence": 0.86
+    },
+    {
+      "id": "SEM-012",
+      "name": "Vague Temporal recent years historically",
+      "detection": "SUTime no numeric",
+      "confidence": 0.78
+    },
+    {
+      "id": "SEM-013",
+      "name": "Lack Sensory Grounding",
+      "detection": "Brysbaert concreteness -0.8 SD",
+      "confidence": 0.81
+    },
+    {
+      "id": "SEM-014",
+      "name": "Hallucinated Statistics 85% 47.3% no source",
+      "detection": "regex number + studies show",
+      "confidence": 0.88
+    },
+    {
+      "id": "SEM-015",
+      "name": "Semantic Drift first vs last <0.4",
+      "detection": "chunk 100 overlap 50 cosine",
+      "confidence": 0.79
+    },
+    {
+      "id": "SEM-016",
+      "name": "Excessive Unprioritized Listing >5 equal",
+      "confidence": 0.83
+    },
+    {
+      "id": "SEM-017",
+      "name": "Authority Appeal Experts agree no NER",
+      "confidence": 0.86
+    },
+    {
+      "id": "SEM-018",
+      "name": "Absence Colloquial Repairs 6-11% vs <1%",
+      "confidence": 0.8
+    },
+    {
+      "id": "SEM-019",
+      "name": "Western Cultural Default Bias turkey mashed potatoes",
+      "confidence": 0.77
+    },
+    {
+      "id": "SEM-020",
+      "name": "Low Surprise Deficit",
+      "detection": "embedding distance to cliche centroid >0.88",
+      "confidence": 0.75
+    },
+    {
+      "id": "SEM-021",
+      "name": "Meta AI Self-Reference As an AI language model",
+      "confidence": 0.96
+    }
+  ],
+  "references": {
+    "papers": [
+      "2606.04177",
+      "Semantic Entropy Kuhn 2023",
+      "SelfCheckGPT 2024"
+    ],
+    "github": [
+      "sentence-transformers",
+      "GPTZero"
+    ],
+    "huggingface": [
+      "multiqa-MiniLM",
+      "bart-large-mnli"
+    ],
+    "wikipedia": [
+      "Hallucination AI"
+    ]
+  }
+}
