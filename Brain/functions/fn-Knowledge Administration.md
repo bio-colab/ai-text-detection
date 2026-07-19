@@ -14,7 +14,7 @@ function_id: 12
 | Layer | Location | Status |
 |-------|----------|--------|
 | Unified README | [[README]] | Source of truth for package intent |
-| Core JSONs 01–10 | `core/` | 174 patterns + taxonomy |
+| Core JSONs 01–10 | `core/` | 164 patterns + taxonomy |
 | Gaps 01–08 | `gaps/` | Critical limitations |
 | Reference | `reference/` | Agent B deep materials + comparison |
 | Brain | `Brain/` | Cognitive OS (this system) |

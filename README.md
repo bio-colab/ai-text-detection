@@ -1,8 +1,10 @@
 # دليل موحد متكامل لإشارات كشف النصوص المولدة بالذكاء الاصطناعي (مخصص للغة الانجليزية)
 
-**التاريخ:** 18 يوليو 2026  
-**الإصدار:** 1.1-Unified (دمج + سد الثغرات)  
+**التاريخ:** 19 يوليو 2026  
+**الإصدار:** 2.0-Unified (دمج + سد الثغرات + تدقيق نزاهة وإصلاح)  
 **اللغة الرئيسية:** الإنجليزية (مع تحذيرات من الاستخدام مع العربية)  
+
+> **جديد في v2 (تدقيق نزاهة):** نُفِّذت فعلاً الحقول التي كانت مُعلَنة ولم تكن موجودة (`non_native_fp_risk`، `text_length_sensitivity`، `estimated_half_life_months`، قسم `theoretical_limits`)؛ صُحِّح عدّ الأنماط من 174 إلى **164** (العدّ الفعليّ)؛ أُصلح ملف `reference/key_academic_papers.json` المكسور؛ صُحِّح استشهاد DetectGPT في `07` إلى `2301.11305`؛ وُضِّحت دلالة حقل `confidence` (تقديرٌ تحريريّ لا احتمال معاير)؛ أُضيف `LICENSE` و`.gitignore`. التفاصيل في `CHANGELOG.md`.
 
 ---
 
@@ -10,7 +12,7 @@
 
 تم دمج عملين بحثيين مستقلين قويين:
 
-- **الوكيل أ (الكتالوج الهندسي)**: `ai_detection_signals.zip` — 10 ملفات JSON، 174 نمطاً مُعرَّفاً بعتبات وصيغ ودرجات ثقة. عملي جداً لبناء محرك كشف. يغطي طبقات بنيوية ودلالية و watermark بعمق.
+- **الوكيل أ (الكتالوج الهندسي)**: `ai_detection_signals.zip` — 10 ملفات JSON، 164 نمطاً مُعرَّفاً بعتبات وصيغ ودرجات ثقة. عملي جداً لبناء محرك كشف. يغطي طبقات بنيوية ودلالية و watermark بعمق.
 
 - **الوكيل ب (الموجز التحليلي)**: `ai_text_detection_research_complete.zip` — 6 ملفات JSON + شرح عميق لـ "لماذا" كل إشارة، مع تمييزات مفهومية مهمة (مثل Green Observed vs Green Planted) وأمانة عالية في ذكر القيود.
 
@@ -77,8 +79,7 @@ unified_ai_detection/
 ├── reference/
 │   ├── comparison_report.html         (تقرير التحكيم الأصلي بين أ وب)
 │   └── (ملفات ب من المصدر)
-├── templates/                         ← قالب قضية كشف
-└── taxonomy/ (نسخة إضافية من الـ master)
+└── templates/                         ← قالب قضية كشف
 ```
 
 ### 3.1 العقل الكامل في Obsidian (Brain)
@@ -95,7 +96,7 @@ unified_ai_detection/
 | Context building | لغة، طول، non-native، stakes |
 | Memory administration | ذاكرة عمل / حلقات / طويلة الأمد |
 | Inference | دمج معاير + uncertainty |
-| Pattern recognition | مطابقة ~174 نمطاً |
+| Pattern recognition | مطابقة ~164 نمطاً |
 | Relation recognition | علاقات، تناقضات، mixed shifts |
 | Planning | خطط قضايا وبحث عربي |
 | Making decision | سياسة قرار + Human-in-the-Loop |
@@ -136,9 +137,9 @@ unified_ai_detection/
 
 - العمل الذي قام به Elias Sharar من  bio-colab من جمع وتحرير وتنظيم معلومات
 - الأوراق الرئيسية: Kirchenbauer 2023 (watermark), DetectGPT/Fast-DetectGPT, Binoculars, Sadasivan 2023 (impossibility), Wu survey 2025, وغيرها.
-- تم التحقق من صحة JSONs (باستثناء ملف key_academic_papers.json الأصلي المكسور الذي تركناه في reference/).
+- **v2:** تم التحقق من صحة **كل** ملفات JSON (16/16)، بما فيها `reference/key_academic_papers.json` الذي كان مكسوراً وأُصلح (قيمتا `year` غير المقتبستين).
 
-**تم إكمال المهمة بالكامل:** دمج + سد الثغرات الثماني + حزمة واحدة + README شامل.
+**حالة v2:** دمج + سد الثغرات الثماني + **تدقيق نزاهة كامل**: كل حقلٍ مُعلَنٍ صار مُنفَّذاً، وكل عددٍ صار مطابقاً للواقع، وكل ملف JSON صار صالحاً. راجع `CHANGELOG.md` لقائمة التغييرات الكاملة.
 
 للاستفسارات أو التحديثات: استخدم هذا الهيكل كأساس حي.
 

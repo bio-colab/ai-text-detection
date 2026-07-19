@@ -27,7 +27,7 @@ Built 2026-07-18. Parent: [[00_FULL_BRAIN]] · [[fn-Knowledge Administration]]
 | 08_structural_formatting_signals.json | 20 STRUCT-* | short-text weights |
 | 09_semantic_coherence_signals.json | 21 SEM-* | non-native / AR preferred |
 | 10_master_taxonomy.json | matrix + self-review | [[moc-Taxonomy]] |
-| ORIGINAL_README_A.md | 174 meta, ensemble | [[ORIGINAL_README_A]] |
+| ORIGINAL_README_A.md | meta, ensemble (archived; count 164 not 174) | [[ORIGINAL_README_A]] |
 
 ## gaps/
 | File | Doctrine role |

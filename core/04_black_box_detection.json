@@ -2,6 +2,17 @@
   "file_name": "04_black_box_detection.json",
   "category": "black_box_detection",
   "description": "كشف الصندوق الأسود بدون وصول للنموذج المصدر",
+  "_v2_meta": {
+    "schema_version": "2.0",
+    "non_native_fp_risk": "high — relies on surface statistical/lexical features",
+    "text_length_sensitivity": "mixed — statistical members weak on short text; lexical members usable",
+    "disclaimers": {
+      "confidence_semantics": "The `confidence` field is a SUBJECTIVE EDITORIAL prior about how indicative a signal is when present. It is NOT a calibrated probability, NOT P(AI|signal), and was NOT derived from a labelled benchmark. Do not sum, multiply, or threshold these values as if they were probabilities. Any real deployment must re-estimate weights on a local, labelled corpus (see gaps/07).",
+      "non_native_fp_risk": "Qualitative risk that this family raises false positives on English-as-a-second-language writers (see gaps/01). Editorial estimate.",
+      "text_length_sensitivity": "Qualitative note on the minimum text length at which this family is trustworthy (see gaps/07). Editorial estimate.",
+      "estimated_half_life_months": "Where present on a pattern: a HEURISTIC editorial estimate (not measured) of how long the signal stays useful before models/humanizers erode it (see gaps/08). Reflects observed lexical/format drift 2023 -> 2026."
+    }
+  },
   "total_patterns": 21,
   "patterns": [
     {

@@ -1,0 +1,25 @@
+# Obsidian local/per-machine state (should not be shared)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Python (if scripts are added later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (if tooling is added later)
+node_modules/
+
+# Local scratch
+/tmp/
+*.tmp

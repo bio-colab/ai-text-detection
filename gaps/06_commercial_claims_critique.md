@@ -25,6 +25,6 @@ Turnitin مثلاً يعتمد على "segmentation + RoBERTa" لكن دراسا
 ---
 
 ## Brain links
-- Doctrine hub: [[moc-Gaps]] � [[00_FULL_BRAIN]]
-- Decision: [[fn-Making Decision]] � [[protocol-Human Review]]
+- Doctrine hub: [[moc-Gaps]] → [[00_FULL_BRAIN]]
+- Decision: [[fn-Making Decision]] → [[protocol-Human Review]]
 - Pipeline: [[pipeline-Detect Text Cycle]]

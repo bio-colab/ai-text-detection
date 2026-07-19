@@ -7,7 +7,7 @@ function_id: 07
 
 # fn-Pattern Recognition — Match known AI-detection patterns
 
-**Role:** Scan text (and metadata) against the catalogued pattern library (~174 patterns + reference patterns).
+**Role:** Scan text (and metadata) against the catalogued pattern library (~164 patterns + reference patterns).
 
 ## Pattern libraries (perception targets)
 

@@ -39,7 +39,7 @@
     {
       "title": "A Survey on LLM-Generated Text Detection: Necessity, Methods, and Future Directions",
       "authors": "Junchao Wu, Shu Yang, Runzhe Zhan, Yulin Yuan, Derek F. Wong, Lidia S. Chao",
-      "year": 2023 (updated/published 2025 in Computational Linguistics)",
+      "year": "2023 (updated/published 2025 in Computational Linguistics)",
       "arxiv_id": "2310.14724",
       "link": "https://arxiv.org/abs/2310.14724",
       "type": "Comprehensive Survey / Taxonomy",
@@ -59,7 +59,7 @@
     {
       "title": "Diversity Boosts AI-Generated Text Detection (DivEye)",
       "authors": "A.R. Basani et al.",
-      "year": 2025/2026,
+      "year": "2025/2026",
       "arxiv_id": "2509.18880",
       "link": "https://arxiv.org/abs/2509.18880",
       "type": "Recent Improvement / Surprisal-based",

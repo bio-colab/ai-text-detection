@@ -4,7 +4,7 @@ aliases: [Core Signals MOC, moc-Core Signals]
 type: moc
 ---
 
-# MOC — Core Signals (174 patterns)
+# MOC — Core Signals (164 patterns)
 
 Maps the engineering catalog (Agent A) after unified merge. Parent: [[00_FULL_BRAIN]] · [[moc-Taxonomy]]
 
@@ -57,7 +57,7 @@ Hallucination · fabricated citations · no personal experience · hedging · sa
 See [[moc-Taxonomy]] · gaps layer [[moc-Gaps]]
 
 ## Original engineering README
-[[ORIGINAL_README_A]] — 174 patterns, multi-agent collection rules, best ensemble note
+[[ORIGINAL_README_A]] — 164 patterns, multi-agent collection rules, best ensemble note
 
 ## How brain uses this MOC
 - [[fn-Perception]] registers component outputs by category

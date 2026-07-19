@@ -2,8 +2,8 @@
   "file_name": "10_master_taxonomy.json",
   "meta": {
     "project": "Comprehensive AI Text Detection Signals Taxonomy",
-    "version": "1.1-unified",
-    "date": "2026-07-18",
+    "version": "2.0-unified",
+    "date": "2026-07-19",
     "language_focus": "English",
     "sources_covered": [
       "arxiv",
@@ -13,10 +13,10 @@
       "Commercial"
     ],
     "total_files": 10,
-    "total_patterns_aggregated": 174,
+    "total_patterns_aggregated": 164,
     "creation_method": "Multi-agent parallel research with self-review loop",
     "gaps_filled": 8,
-    "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv corrected to 2310.05130."
+    "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv = 2310.05130. v2 corrections: pattern count fixed 174->164; 07 DetectGPT ref fixed to 2301.11305; claimed JSON fields (non_native_fp_risk, text_length_sensitivity, estimated_half_life_months) now actually implemented as documented editorial estimates; confidence semantics disclaimed; broken key_academic_papers.json repaired; LICENSE + .gitignore added. See CHANGELOG.md."
   },
   "taxonomy": {
     "01_linguistic_markers": {
@@ -105,7 +105,14 @@
   },
   "self_review_mechanism": {
     "loop": "Search -> Classify -> Count -> Review: هل غطيت كل الجوانب؟ هل أتممت كل المهام؟ هل صنفتها بشكل صحيح؟ -> If coverage <95% refine query",
-    "validation": "Each pattern must have id, name, detection, examples, sources, confidence. Each file must have arxiv, github, huggingface, wikipedia, commercial",
-    "anti_stop": "counter patterns <15 triggers continuation, checklist source types >=3 per file"
+    "validation": "REQUIRED minimal schema per pattern: id, name, at least one of {detection|method|formula|pattern|description}, confidence. RECOMMENDED but currently incomplete across the corpus: examples (~12%) and per-pattern sources (~1%). This is a documentation debt, not a claim of completeness.",
+    "anti_stop": "counter patterns <15 triggers continuation, checklist source types >=3 per file",
+    "confidence_semantics": "confidence = subjective editorial prior, NOT a calibrated probability. See each file _v2_meta.disclaimers."
+  },
+  "theoretical_limits": {
+    "source": "gaps/02_impossibility_theorem.md",
+    "key_result": "Sadasivan et al. 2303.11156 (TMLR): as the model distribution approaches the human distribution, the AUROC of ANY detector is bounded by the total-variation distance between them -> reliable statistical detection without watermark/external evidence becomes impossible in the limit.",
+    "counterpoint": "Chakraborty et al. argue detection remains possible given enough samples / longer text; the practical takeaway is management, not a hard impossibility.",
+    "implication": "Do not build systems that assume 100% detection. Prioritise watermarking + external evidence + human review over pure text-internal classification."
   }
 }

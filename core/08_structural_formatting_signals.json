@@ -2,6 +2,17 @@
   "file_name": "08_structural_formatting_signals.json",
   "category": "structural_formatting",
   "description": "الإشارات البنيوية والتنسيقية",
+  "_v2_meta": {
+    "schema_version": "2.0",
+    "non_native_fp_risk": "medium — formatting reflects tool use more than nativeness",
+    "text_length_sensitivity": "robust_on_short — these are the strongest signals for short text",
+    "disclaimers": {
+      "confidence_semantics": "The `confidence` field is a SUBJECTIVE EDITORIAL prior about how indicative a signal is when present. It is NOT a calibrated probability, NOT P(AI|signal), and was NOT derived from a labelled benchmark. Do not sum, multiply, or threshold these values as if they were probabilities. Any real deployment must re-estimate weights on a local, labelled corpus (see gaps/07).",
+      "non_native_fp_risk": "Qualitative risk that this family raises false positives on English-as-a-second-language writers (see gaps/01). Editorial estimate.",
+      "text_length_sensitivity": "Qualitative note on the minimum text length at which this family is trustworthy (see gaps/07). Editorial estimate.",
+      "estimated_half_life_months": "Where present on a pattern: a HEURISTIC editorial estimate (not measured) of how long the signal stays useful before models/humanizers erode it (see gaps/08). Reflects observed lexical/format drift 2023 -> 2026."
+    }
+  },
   "total_patterns": 20,
   "patterns": [
     {
@@ -33,13 +44,15 @@
       "id": "STRUCT-005",
       "name": "Formulaic Intro Opener",
       "pattern": "In today's fast-paced world",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-006",
       "name": "Formulaic Conclusion",
       "pattern": "In conclusion Ultimately",
-      "confidence": 0.93
+      "confidence": 0.93,
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-007",
@@ -65,7 +78,8 @@
       "name": "Em Dash Overuse",
       "pattern": "word — phrase",
       "threshold": "0.3 human vs 2.8 AI",
-      "confidence": 0.87
+      "confidence": 0.87,
+      "estimated_half_life_months": 12
     },
     {
       "id": "STRUCT-011",

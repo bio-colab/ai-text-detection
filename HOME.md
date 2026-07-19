@@ -18,7 +18,7 @@ type: home
 | Run a detection case | [[pipeline-Detect Text Cycle]] + [[memory-Working Memory]] |
 | See the full cognitive map | [[00_FULL_BRAIN]] · Graph view · [[Brain Canvas]] |
 | Understand limitations first | [[moc-Gaps]] (start [[03_arabic_detection]]) |
-| Browse 174 patterns | [[moc-Core Signals]] |
+| Browse 164 patterns | [[moc-Core Signals]] |
 | See taxonomy matrix | [[moc-Taxonomy]] |
 | Review papers/tools | [[moc-Reference]] |
 | Check priorities | [[queue-Priorities]] |

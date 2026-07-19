@@ -26,6 +26,6 @@
 ---
 
 ## Brain links
-- Doctrine hub: [[moc-Gaps]] · [[00_FULL_BRAIN]]
-- Decision: [[fn-Making Decision]] · [[protocol-Human Review]]
+- Doctrine hub: [[moc-Gaps]] â†’ [[00_FULL_BRAIN]]
+- Decision: [[fn-Making Decision]] â†’ [[protocol-Human Review]]
 - Pipeline: [[pipeline-Detect Text Cycle]]
