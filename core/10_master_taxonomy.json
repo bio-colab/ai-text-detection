@@ -2,7 +2,7 @@
   "file_name": "10_master_taxonomy.json",
   "meta": {
     "project": "Comprehensive AI Text Detection Signals Taxonomy",
-    "version": "2.0-unified",
+    "version": "3.0-open",
     "date": "2026-07-19",
     "language_focus": "English",
     "sources_covered": [
@@ -16,7 +16,20 @@
     "total_patterns_aggregated": 164,
     "creation_method": "Multi-agent parallel research with self-review loop",
     "gaps_filled": 8,
-    "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv = 2310.05130. v2 corrections: pattern count fixed 174->164; 07 DetectGPT ref fixed to 2301.11305; claimed JSON fields (non_native_fp_risk, text_length_sensitivity, estimated_half_life_months) now actually implemented as documented editorial estimates; confidence semantics disclaimed; broken key_academic_papers.json repaired; LICENSE + .gitignore added. See CHANGELOG.md."
+    "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv = 2310.05130. v2 corrections: pattern count fixed 174->164; 07 DetectGPT ref fixed to 2301.11305; claimed JSON fields (non_native_fp_risk, text_length_sensitivity, estimated_half_life_months) now actually implemented as documented editorial estimates; confidence semantics disclaimed; broken key_academic_papers.json repaired; LICENSE + .gitignore added. See CHANGELOG.md.",
+    "unique_pattern_names": 153,
+    "cross_file_duplicates": {
+      "em dash overuse": 2,
+      "low perplexity": 2,
+      "low burstiness": 3,
+      "detectgpt curvature": 3,
+      "fast-detectgpt conditional curvature": 2,
+      "logrank average": 2,
+      "lrr ratio": 2,
+      "binoculars cross-ppl": 2,
+      "min-k% prob": 2
+    },
+    "count_semantics": "total_patterns_aggregated counts every entry in every file (a pattern may legitimately appear in more than one methodological layer, e.g. DetectGPT curvature exists in statistical, black-box and white-box views); unique_pattern_names deduplicates by name. Cite the UNIQUE number when speaking of distinct signals."
   },
   "taxonomy": {
     "01_linguistic_markers": {

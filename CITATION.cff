@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this knowledge base or the mijhar engine, please cite it."
+title: "Unified AI Text Detection Knowledge Base + mijhar evidence engine"
+version: "3.0.0"
+date-released: "2026-07-19"
+authors:
+  - family-names: "Sharar"
+    given-names: "Elias"
+    affiliation: "bio-colab"
+repository-code: "https://github.com/bio-colab/ai-text-detection"
+license: MIT
+keywords:
+  - AI text detection
+  - stylometry
+  - academic integrity
+  - Arabic NLP
+abstract: >
+  A bilingual (Arabic/English) open knowledge base of 153 unique documented
+  signals for investigating AI-generated text, eight critical-limitation
+  dossiers (false positives on non-native writers, theoretical impossibility,
+  Arabic detection, mixed texts, external evidence, commercial claims,
+  calibration, signal obsolescence), a verified key-papers bibliography, and
+  mijhar: a deterministic, stdlib-only evidence scanner that collects
+  human-verifiable excerpts and never outputs a verdict.

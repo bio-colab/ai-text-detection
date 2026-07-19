@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bio-colab/ai-text-detection/schema/pattern_file.schema.json",
+  "title": "AI Text Detection — signal file (core/01–09)",
+  "description": "Minimal contract enforced by scripts/validate_corpus.py check C2. A pattern is an observable, documented stylistic/statistical signal — never a verdict rule.",
+  "type": "object",
+  "required": ["patterns", "_v2_meta"],
+  "properties": {
+    "_v2_meta": {
+      "type": "object",
+      "required": ["non_native_fp_risk", "text_length_sensitivity"],
+      "properties": {
+        "non_native_fp_risk": {
+          "type": "string",
+          "description": "high | medium | not_applicable — honest per-file assessment of false-positive risk on non-native writers (empirical basis: Liang et al. arXiv:2304.02819)."
+        },
+        "text_length_sensitivity": {
+          "type": "string",
+          "description": "Qualitative reliability vs text length, e.g. low_on_short, robust_on_short."
+        },
+        "disclaimers": { "type": ["string", "object", "array"] }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "confidence"],
+        "anyOf": [
+          {"required": ["detection"]}, {"required": ["method"]},
+          {"required": ["formula"]}, {"required": ["pattern"]},
+          {"required": ["description"]}
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z]{2,8}-[0-9]{3}$"},
+          "name": {"type": "string", "minLength": 3},
+          "confidence": {
+            "type": "number", "minimum": 0, "maximum": 1,
+            "description": "EDITORIAL PRIOR about signal salience when present. NOT a calibrated probability, NOT P(AI). Never sum, multiply, or threshold as probability (gaps/07)."
+          },
+          "detection": {"type": "string"},
+          "examples": {"type": "array", "items": {"type": "string"}},
+          "sources": {
+            "type": "array", "items": {"type": "string"},
+            "description": "Preferably arXiv IDs like 'arxiv:2412.11385'. Per-pattern sourcing is the corpus's largest open documentation debt — contributions of one sourced pattern each are the most valuable PR type."
+          },
+          "estimated_half_life_months": {
+            "type": "number",
+            "description": "Editorial decay estimate (gaps/08), not a measurement."
+          }
+        }
+      }
+    }
+  }
+}

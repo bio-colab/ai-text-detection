@@ -3,7 +3,9 @@
     "title": "Key Academic Papers and Resources on AI-Generated Text Detection and Watermarking (English Focus)",
     "description": "Curated list of most important, famous, latest (up to 2026), and influential arXiv papers, surveys, and related resources on detecting AI writing in English text, LLM watermarking, patterns/signals, and detector methods. Includes abstracts/key contributions relevant to indicators and patterns. Sources primarily arXiv, with cross-references to HF/GitHub where implementations appear.",
     "created_date": "2026-07-18",
-    "selection_criteria": "Fame/impact (citations, adoption), recency (latest methods/surveys), direct relevance to English text patterns (perplexity, burstiness, green list, GLTR, curvature, ML), coverage of black-box/watermark/commercial implications. Self-reviewed for comprehensiveness across categories."
+    "selection_criteria": "Fame/impact (citations, adoption), recency (latest methods/surveys), direct relevance to English text patterns (perplexity, burstiness, green list, GLTR, curvature, ML), coverage of black-box/watermark/commercial implications. Self-reviewed for comprehensiveness across categories.",
+    "updated_date": "2026-07-19",
+    "v3_note": "v3 added 7 papers (Binoculars, Sadasivan impossibility, Liang non-native bias, RAID, Ghostbuster, GLTR, SynthID-Text). Every arXiv ID here was verified against arxiv.org at add time."
   },
   "key_papers": [
     {
@@ -75,6 +77,83 @@
       "type": "Evaluation / ML Baselines",
       "key_contributions_to_indicators": "Evaluates traditional ML (TF-IDF + LR) vs deep (BiLSTM, DistilBERT) on AI detection. Shows contextual models (DistilBERT) superior (88%+ acc, 0.96 ROC-AUC). Highlights importance of proper evaluation protocols to avoid topic memorization. Useful baselines for English text.",
       "relevance": "Recent practical evaluation confirming value of transformer-based ML patterns while noting limitations."
+    },
+    {
+      "title": "Spotting LLMs With Binoculars: Zero-Shot Detection of Machine-Generated Text",
+      "authors": "Abhimanyu Hans, Avi Schwarzschild, Valeriia Cherepanova, Hamid Kazemi, Aniruddha Saha, Micah Goldblum, Jonas Geiping, Tom Goldstein",
+      "year": 2024,
+      "arxiv_id": "2401.12070",
+      "link": "https://arxiv.org/abs/2401.12070",
+      "type": "Zero-Shot / Cross-Perplexity",
+      "key_contributions_to_indicators": "Introduces the Binoculars score: the ratio of perplexity to cross-perplexity computed with a pair of related LLMs (observer/performer). Detects text from many LLMs without any model-specific training data, at very low false-positive rates on benchmark settings. Basis of the 'Binoculars Cross-PPL' pattern in core/02 and core/05.",
+      "relevance": "One of the strongest open zero-shot detectors; ICML 2024.",
+      "added_in": "v3"
+    },
+    {
+      "title": "Can AI-Generated Text be Reliably Detected?",
+      "authors": "Vinu Sankar Sadasivan, Aounon Kumar, Sriram Balasubramanian, Wenxiao Wang, Soheil Feizi",
+      "year": "2023 (TMLR 2025)",
+      "arxiv_id": "2303.11156",
+      "link": "https://arxiv.org/abs/2303.11156",
+      "type": "Theoretical Limits / Attacks",
+      "key_contributions_to_indicators": "The impossibility result underlying gaps/02 and core/10 theoretical_limits: as the total variation distance between human and model text distributions shrinks, the best possible detector's advantage over random guessing shrinks with it. Also demonstrates recursive-paraphrase attacks that break watermark, zero-shot and trained detectors, and spoofing attacks against watermarks.",
+      "relevance": "Defines the ceiling every detection claim must be measured against.",
+      "added_in": "v3"
+    },
+    {
+      "title": "GPT detectors are biased against non-native English writers",
+      "authors": "Weixin Liang, Mert Yuksekgonul, Yining Mao, Eric Wu, James Zou",
+      "year": "2023 (Patterns, Cell Press)",
+      "arxiv_id": "2304.02819",
+      "link": "https://arxiv.org/abs/2304.02819",
+      "type": "Fairness / False Positives",
+      "key_contributions_to_indicators": "Seven widely-used detectors misclassified over half of 91 human-written TOEFL essays as AI-generated (average FPR 61.22%) while remaining near-perfect on native US 8th-grade essays. Shows that enriching vocabulary of non-native essays REDUCES misclassification — detectors penalize constrained linguistic range, i.e., low perplexity of non-native prose. Empirical backbone of gaps/01.",
+      "relevance": "The single most important paper for any Arab/Iraqi academic deployment of detectors.",
+      "added_in": "v3"
+    },
+    {
+      "title": "RAID: A Shared Benchmark for Robust Evaluation of Machine-Generated Text Detectors",
+      "authors": "Liam Dugan, Alyssa Hwang, Filip Trhlik, Josh Magnus Ludan, Andrew Zhu, Hainiu Xu, Daphne Ippolito, Chris Callison-Burch",
+      "year": "2024 (ACL 2024)",
+      "arxiv_id": "2405.07940",
+      "link": "https://arxiv.org/abs/2405.07940",
+      "type": "Benchmark / Adversarial Robustness",
+      "key_contributions_to_indicators": "Largest shared benchmark: 6M+ generations across 11 models, 8 domains, 11 adversarial attacks, 4 decoding strategies. Evaluates 8 open and 4 closed detectors and finds all are easily fooled by sampling variations, repetition penalties, adversarial attacks and unseen generators — direct empirical support for gaps/06 (commercial claims critique) and gaps/08 (obsolescence).",
+      "relevance": "The evaluation standard this package recommends before trusting any detector.",
+      "added_in": "v3"
+    },
+    {
+      "title": "Ghostbuster: Detecting Text Ghostwritten by Large Language Models",
+      "authors": "Vivek Verma, Eve Fleisig, Nicholas Tomlin, Dan Klein",
+      "year": "2023 (NAACL 2024)",
+      "arxiv_id": "2305.15047",
+      "link": "https://arxiv.org/abs/2305.15047",
+      "type": "Trained Detector / Feature Search",
+      "key_contributions_to_indicators": "Passes documents through weaker language models, then runs a structured search over combinations of their token-probability features to train a classifier. Does not need token probabilities from the target model — works on black-box or unknown generators. Strong document-level results with released datasets (essays, news, creative writing).",
+      "relevance": "Representative of the feature-combination school; complements curvature methods in core/04.",
+      "added_in": "v3"
+    },
+    {
+      "title": "GLTR: Statistical Detection and Visualization of Generated Text",
+      "authors": "Sebastian Gehrmann, Hendrik Strobelt, Alexander M. Rush",
+      "year": "2019 (ACL 2019 demo)",
+      "arxiv_id": "1906.04043",
+      "link": "https://arxiv.org/abs/1906.04043",
+      "type": "Visual Forensics / Token Rank",
+      "key_contributions_to_indicators": "The original 'green box' forensic tool: colors each token by its rank in a language model's predicted distribution (top-10/100/1000). Human raters' detection accuracy improved from 54% to 72% without training. Ancestor of the token-rank family of signals in core/02 and the 'green observed' concept in agent-B's analysis.",
+      "relevance": "Historical foundation; still the clearest pedagogical tool for teaching how statistical detection works.",
+      "added_in": "v3"
+    },
+    {
+      "title": "Scalable watermarking for identifying large language model outputs (SynthID-Text)",
+      "authors": "Sumanth Dathathri, Abigail See, Sumedh Ghaisas, et al. (Google DeepMind)",
+      "year": "2024 (Nature 634)",
+      "arxiv_id": "",
+      "link": "https://www.nature.com/articles/s41586-024-08025-4",
+      "type": "Production Watermarking",
+      "key_contributions_to_indicators": "First production-deployed generative watermark (Gemini), using tournament sampling; evaluated on ~20M live responses with preserved text quality. Demonstrates that provenance-based detection can scale, while remaining vulnerable to heavy paraphrase — the practical counterpart of Kirchenbauer's scheme in core/03.",
+      "relevance": "Where watermarking actually stands in deployed systems.",
+      "added_in": "v3"
     }
   ],
   "other_resources": {
@@ -83,5 +162,5 @@
     "github": "Implementations of GLTR, DetectGPT/Fast-DetectGPT, watermark detectors, benchmark suites (MGTBench etc.), attack tools. Essential for reproducing patterns and building custom solutions. Search terms: 'ai text detector', 'llm watermark', 'detectgpt', 'gltr'.",
     "datasets_mentioned": "HC3 (Human vs ChatGPT), MGTBench, RAID (for robust detection), custom paired corpora in papers. Critical for training/eval of ML pattern detectors."
   },
-  "self_review_completeness": "Selected papers represent the most cited/famous (Kirchenbauer, DetectGPT, Survey), latest advancements (2025-2026), and cover all requested angles (watermark/green list, GLTR/green box, black-box/zero-shot, patterns like curvature/PPL, ML). Iterated searches confirmed these as core. No major omissions in influential English-focused works. Classification by type aids navigation."
+  "self_review_completeness": "v3 review: previous claim of 'no major omissions' was FALSE — Binoculars and Sadasivan were absent while README named them key papers. Both added with 5 more. Remaining known gaps: Arabic-specific detection literature (thin by nature, tracked in gaps/03), and post-2026 work — refresh every 6 months per the maintenance ritual."
 }

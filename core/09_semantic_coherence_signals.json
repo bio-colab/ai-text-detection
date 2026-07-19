@@ -43,7 +43,8 @@
       "id": "SEM-005",
       "name": "Hedging Overuse 30-60% vs <5%",
       "density": ">0.4 => AI",
-      "confidence": 0.91
+      "confidence": 0.91,
+      "detection": "density: >0.4 => AI"
     },
     {
       "id": "SEM-006",
@@ -108,22 +109,30 @@
     {
       "id": "SEM-016",
       "name": "Excessive Unprioritized Listing >5 equal",
-      "confidence": 0.83
+      "confidence": 0.83,
+      "description": "Excessive Unprioritized Listing >5 equal",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "SEM-017",
       "name": "Authority Appeal Experts agree no NER",
-      "confidence": 0.86
+      "confidence": 0.86,
+      "description": "Authority Appeal Experts agree no NER",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "SEM-018",
       "name": "Absence Colloquial Repairs 6-11% vs <1%",
-      "confidence": 0.8
+      "confidence": 0.8,
+      "description": "Absence Colloquial Repairs 6-11% vs <1%",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "SEM-019",
       "name": "Western Cultural Default Bias turkey mashed potatoes",
-      "confidence": 0.77
+      "confidence": 0.77,
+      "description": "Western Cultural Default Bias turkey mashed potatoes",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "SEM-020",
@@ -135,7 +144,9 @@
       "id": "SEM-021",
       "name": "Meta AI Self-Reference As an AI language model",
       "confidence": 0.96,
-      "estimated_half_life_months": 6
+      "estimated_half_life_months": 6,
+      "description": "Meta AI Self-Reference As an AI language model",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     }
   ],
   "references": {

@@ -56,8 +56,10 @@ relations:
 ## Graph edges to maintain in Obsidian
 
 Every relation note or case should create links of type:
-`[[pattern A]] --supports--> [[hypothesis]]`  
-`[[gap X]] --limits--> [[pattern A]]`
+```
+[[pattern A]] --supports--> [[hypothesis]]
+[[gap X]]     --limits-->   [[pattern A]]
+```
 
 Use [[fn-Linking]] for persistent wiki structure.
 

@@ -77,35 +77,67 @@
   "patterns": [
     {
       "id": "OS-001",
-      "name": "RoBERTa Classifier Score >0.8 AI"
+      "name": "RoBERTa Classifier Score >0.8 AI",
+      "description": "RoBERTa Classifier Score >0.8 AI",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-002",
-      "name": "MAGE DeBERTa-v3-base+FeatAttn 85.9% on M4"
+      "name": "MAGE DeBERTa-v3-base+FeatAttn 85.9% on M4",
+      "description": "MAGE DeBERTa-v3-base+FeatAttn 85.9% on M4",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-003",
-      "name": "HC3 Overly Complete Answers vs human short"
+      "name": "HC3 Overly Complete Answers vs human short",
+      "description": "HC3 Overly Complete Answers vs human short",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-004",
-      "name": "GLTR Visual green yellow red purple"
+      "name": "GLTR Visual green yellow red purple",
+      "description": "GLTR Visual green yellow red purple",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-005",
-      "name": "Binoculars Ratio PPL_M1 / X-PPL <0.9"
+      "name": "Binoculars Ratio PPL_M1 / X-PPL <0.9",
+      "description": "Binoculars Ratio PPL_M1 / X-PPL <0.9",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-006",
-      "name": "Watermark z-score"
+      "name": "Watermark z-score",
+      "description": "Watermark z-score",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-007",
-      "name": "RAID Adversarial typos paraphrase homoglyph"
+      "name": "RAID Adversarial typos paraphrase homoglyph",
+      "description": "RAID Adversarial typos paraphrase homoglyph",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     },
     {
       "id": "OS-008",
-      "name": "Wikipedia AI Cleanup Here is your Wikipedia article"
+      "name": "Wikipedia AI Cleanup Here is your Wikipedia article",
+      "description": "Wikipedia AI Cleanup Here is your Wikipedia article",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome",
+      "confidence": 0.5,
+      "_confidence_note": "v3: default editorial prior 0.5 (was missing in source); NOT calibrated"
     }
   ],
   "references": {

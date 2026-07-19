@@ -6,7 +6,7 @@ type: home
 
 # 🏠 HOME — AI Text Detection Brain Vault
 
-**Package:** Unified AI Text Detection v1.1 · **Brain:** Cognitive OS online  
+**Package:** Unified AI Text Detection **v3.0-open** · **Brain:** Cognitive OS online · **Engine:** مِجْهَر mijhar (src/)  
 **Start here if new:** [[00_FULL_BRAIN]] · Package intro: [[README]]
 
 ---
@@ -18,7 +18,7 @@ type: home
 | Run a detection case | [[pipeline-Detect Text Cycle]] + [[memory-Working Memory]] |
 | See the full cognitive map | [[00_FULL_BRAIN]] · Graph view · [[Brain Canvas]] |
 | Understand limitations first | [[moc-Gaps]] (start [[03_arabic_detection]]) |
-| Browse 164 patterns | [[moc-Core Signals]] |
+| Browse the 153 unique patterns (164 aggregated) | [[moc-Core Signals]] |
 | See taxonomy matrix | [[moc-Taxonomy]] |
 | Review papers/tools | [[moc-Reference]] |
 | Check priorities | [[queue-Priorities]] |
@@ -39,7 +39,13 @@ core/     → 10 JSON signal libraries + taxonomy
 gaps/     → 8 critical limitation docs
 reference/→ analytical depth + comparison HTML
 Brain/    → this cognitive operating system
+src/      → مِجْهَر mijhar: runnable evidence scanner (stdlib-only)
+scripts/  → validate_corpus.py: 10-check integrity guard (runs in CI)
+tests/    → pytest suite
 ```
+
+Run a scan: `python3 -m mijhar examples/sample_ai_like.txt` (from `src/`, or with `PYTHONPATH=src`)
+Run the guard: `python3 scripts/validate_corpus.py`
 
 ---
 

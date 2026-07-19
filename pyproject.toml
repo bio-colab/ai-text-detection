@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mijhar"
+version = "3.0.0"
+description = "مِجْهَر mijhar — a microscope, not a judge: deterministic stylistic evidence collector for AI-generated text investigation (stdlib-only, EN + experimental AR)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Elias Sharar (bio-colab)"}]
+keywords = ["ai-text-detection", "stylometry", "academic-integrity", "arabic", "forensics"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: Arabic",
+  "Natural Language :: English",
+  "Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://github.com/bio-colab/ai-text-detection"
+
+[project.scripts]
+mijhar = "mijhar.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

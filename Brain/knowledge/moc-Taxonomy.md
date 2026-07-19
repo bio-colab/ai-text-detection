@@ -10,7 +10,7 @@ Source: `core/10_master_taxonomy.json` · Version **1.1-unified** · 2026-07-18
 
 ## Meta
 - Language focus: English (with AR warnings)
-- Patterns aggregated: **164**
+- Patterns aggregated: **164** · unique names: **153** (9 patterns legitimately appear in more than one methodological layer — see `cross_file_duplicates` in core/10)
 - Gaps filled: **8**
 - Merge: Engineering catalog (A) + Analytical brief (B)
 - Method: Multi-agent parallel research + self-review loop

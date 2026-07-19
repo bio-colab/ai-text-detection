@@ -1,0 +1,19 @@
+name: integrity
+on:
+  push: {branches: [main, master]}
+  pull_request:
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Corpus integrity guard (10 checks)
+        run: python3 scripts/validate_corpus.py
+      - name: Install test runner
+        run: pip install pytest
+      - name: Engine + doctrine tests
+        run: python3 -m pytest tests/ -q
+      - name: Demo scan must run
+        run: PYTHONPATH=src python3 -m mijhar examples/sample_ai_like.txt --json > /dev/null

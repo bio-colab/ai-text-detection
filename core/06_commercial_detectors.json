@@ -44,12 +44,16 @@
     {
       "id": "CD-001",
       "name": "Low Perplexity",
-      "confidence": 0.96
+      "confidence": 0.96,
+      "description": "Low Perplexity",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-002",
       "name": "Low Burstiness",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "description": "Low Burstiness",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-003",
@@ -61,103 +65,143 @@
         "testament"
       ],
       "confidence": 0.93,
-      "estimated_half_life_months": 12
+      "estimated_half_life_months": 12,
+      "description": "Overused AI Vocabulary 50-269x GPTZero 3.3M Feb2026",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-004",
       "name": "Excessive Transitions",
-      "confidence": 0.88
+      "confidence": 0.88,
+      "description": "Excessive Transitions",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-005",
       "name": "Template Repetition 76% vs 35% human",
-      "confidence": 0.91
+      "confidence": 0.91,
+      "description": "Template Repetition 76% vs 35% human",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-006",
       "name": "Rule of Three Listicles",
-      "confidence": 0.82
+      "confidence": 0.82,
+      "description": "Rule of Three Listicles",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-007",
       "name": "Avoid Simple Copulas serves as vs is",
-      "confidence": 0.84
+      "confidence": 0.84,
+      "description": "Avoid Simple Copulas serves as vs is",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-008",
       "name": "ING Clause Overuse 450 vs 306",
-      "confidence": 0.86
+      "confidence": 0.86,
+      "description": "ING Clause Overuse 450 vs 306",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-009",
       "name": "Symmetric Load Balancing equal sections",
-      "confidence": 0.89
+      "confidence": 0.89,
+      "description": "Symmetric Load Balancing equal sections",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-010",
       "name": "Formulaic Conclusions In conclusion",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "description": "Formulaic Conclusions In conclusion",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-011",
       "name": "Promotional Hype pivotal moment",
-      "confidence": 0.8
+      "confidence": 0.8,
+      "description": "Promotional Hype pivotal moment",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-012",
       "name": "Generic Analysis valuable insights",
-      "confidence": 0.87
+      "confidence": 0.87,
+      "description": "Generic Analysis valuable insights",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-013",
       "name": "Vague Attributions Experts argue",
-      "confidence": 0.83
+      "confidence": 0.83,
+      "description": "Vague Attributions Experts argue",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-014",
       "name": "No Personal Pronouns",
-      "confidence": 0.81
+      "confidence": 0.81,
+      "description": "No Personal Pronouns",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-015",
       "name": "Sentiment Homogeneity variance 0.12 vs 0.45",
-      "confidence": 0.79
+      "confidence": 0.79,
+      "description": "Sentiment Homogeneity variance 0.12 vs 0.45",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-016",
       "name": "Flawless Grammar",
-      "confidence": 0.75
+      "confidence": 0.75,
+      "description": "Flawless Grammar",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-017",
       "name": "Low TTR 0.42 vs 0.58",
-      "confidence": 0.88
+      "confidence": 0.88,
+      "description": "Low TTR 0.42 vs 0.58",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-018",
       "name": "Nominalization utilization vs using",
-      "confidence": 0.8
+      "confidence": 0.8,
+      "description": "Nominalization utilization vs using",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-019",
       "name": "Em Dash Overuse >2 per 100 LinkedIn 2025",
       "confidence": 0.84,
-      "estimated_half_life_months": 12
+      "estimated_half_life_months": 12,
+      "description": "Em Dash Overuse >2 per 100 LinkedIn 2025",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-020",
       "name": "Bullets Bold Title Case Hooks",
-      "confidence": 0.78
+      "confidence": 0.78,
+      "description": "Bullets Bold Title Case Hooks",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-021",
       "name": "Hallucinated Citations strongest signal",
-      "confidence": 0.94
+      "confidence": 0.94,
+      "description": "Hallucinated Citations strongest signal",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     },
     {
       "id": "CD-022",
       "name": "Statistical Signature avg log-prob -1.2 vs -3.5",
-      "confidence": 0.96
+      "confidence": 0.96,
+      "description": "Statistical Signature avg log-prob -1.2 vs -3.5",
+      "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"
     }
   ],
   "references": {

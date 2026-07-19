@@ -12,9 +12,11 @@ Owned by [[fn-Watching]] · Predictions: [[fn-Predicting]]
 | Monitor | Status | Last check | Notes |
 |---------|--------|------------|-------|
 | Doctrine compliance | 🟢 init | 2026-07-18 | punish-on-score forbidden |
-| Taxonomy freshness | 🟢 v1.1 | 2026-07-18 | next refresh ≤ 2027-01 |
+| Taxonomy freshness | 🟢 v3.0 | 2026-07-19 | next refresh ≤ 2027-01 |
 | Arabic readiness | 🔴 low | 2026-07-18 | no local corpus yet |
-| Calibration local | 🔴 none | 2026-07-18 | need labeled sample |
+| Calibration local | 🔴 none | 2026-07-19 | need labeled sample |
+| CI integrity guard | 🟢 active | 2026-07-19 | validate_corpus.py, 10 checks |
+| Executable engine | 🟢 v3.0 | 2026-07-19 | mijhar: 16 signals, EN+AR-experimental |
 | Commercial trust | 🟡 untrusted | 2026-07-18 | audit before buy |
 | Signal half-life | 🟡 active | 2026-07-18 | style markers decaying |
 
@@ -22,6 +24,7 @@ Owned by [[fn-Watching]] · Predictions: [[fn-Predicting]]
 | Date | Code | Detail | Action |
 |------|------|--------|--------|
 | 2026-07-18 | INFO | Brain online after full vault read | — |
+| 2026-07-19 | INFO | v3.0-open: engine + CI guard + 7 key papers + audit repairs | validate_corpus green |
 
 ## Paper / method watchlist
 - [ ] Kirchenbauer 2301.10226

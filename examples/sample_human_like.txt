@@ -1,0 +1,9 @@
+I spent most of last Tuesday trying to figure out why our irrigation controller kept resetting. Turns out the neighbor's welding rig was throwing noise onto the shared line — took me four hours and two burnt fingers to find that.
+
+My brother thinks I should just buy a new one. Maybe. But the old Rain Bird has survived three summers of Mosul heat and I'm oddly attached to it.
+
+Anyway, the fix was a ferrite bead and better grounding. Twenty minutes of actual work.
+
+What bugs me is the documentation. The manual says the controller "tolerates line noise per IEC 61000-4-4," which is either a lie or my neighbor's welder exceeds standards testing. I emailed their support; got a canned reply. Wrote back with oscilloscope screenshots. Silence since.
+
+If anyone else hits this: check pin 7 before you replace anything.

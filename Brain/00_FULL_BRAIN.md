@@ -63,7 +63,7 @@ domain: AI Text Detection Unified v1.1
 | 4 | Context building | Case context, domain, language, length | [[fn-Context Building]] |
 | 5 | Memory administration | Working / episodic / long-term stores | [[fn-Memory Administration]] |
 | 6 | Inference | Bayesian fusion, score → belief | [[fn-Inference]] |
-| 7 | Pattern recognition | Match 164+ patterns from core | [[fn-Pattern Recognition]] |
+| 7 | Pattern recognition | Match 153 unique patterns (164 aggregated) from core | [[fn-Pattern Recognition]] |
 | 8 | Relation recognition | Robust ↔ fragile, EN ↔ AR, internal ↔ external | [[fn-Relation Recognition]] |
 | 9 | Planning | Investigation & research plans | [[fn-Planning]] |
 | 10 | Making decision | Human-in-loop verdict policy | [[fn-Making Decision]] |
@@ -78,7 +78,7 @@ domain: AI Text Detection Unified v1.1
 
 ## Knowledge cortex (vault map)
 
-### Core signals (164 patterns)
+### Core signals (153 unique patterns, 164 aggregated)
 - [[moc-Core Signals]]
 - Source files: `core/01` … `core/10` + [[ORIGINAL_README_A]]
 

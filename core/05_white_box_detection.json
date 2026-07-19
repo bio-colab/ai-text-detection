@@ -19,25 +19,29 @@
       "id": "WB-001",
       "name": "Mean Log Probability",
       "threshold": ">-2.0 AI",
-      "confidence": 0.92
+      "confidence": 0.92,
+      "detection": "threshold: >-2.0 AI"
     },
     {
       "id": "WB-002",
       "name": "Perplexity Threshold",
       "threshold": "<30-50 AI",
-      "confidence": 0.89
+      "confidence": 0.89,
+      "detection": "threshold: <30-50 AI"
     },
     {
       "id": "WB-003",
       "name": "Average Token Rank",
       "threshold": "95% rank1 AI",
-      "confidence": 0.9
+      "confidence": 0.9,
+      "detection": "threshold: 95% rank1 AI"
     },
     {
       "id": "WB-004",
       "name": "LogRank Average",
       "threshold": "0.8 AI vs 2.4 human",
-      "confidence": 0.91
+      "confidence": 0.91,
+      "detection": "threshold: 0.8 AI vs 2.4 human"
     },
     {
       "id": "WB-005",
@@ -49,7 +53,8 @@
       "id": "WB-006",
       "name": "Entropy Low",
       "threshold": "1.2 AI vs 3.8 human",
-      "confidence": 0.84
+      "confidence": 0.84,
+      "detection": "threshold: 1.2 AI vs 3.8 human"
     },
     {
       "id": "WB-007",
