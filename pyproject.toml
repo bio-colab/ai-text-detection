@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mijhar"
-version = "3.0.0"
+version = "3.1.0"
 description = "مِجْهَر mijhar — a microscope, not a judge: deterministic stylistic evidence collector for AI-generated text investigation (stdlib-only, EN + experimental AR)"
 readme = "README.md"
 requires-python = ">=3.9"

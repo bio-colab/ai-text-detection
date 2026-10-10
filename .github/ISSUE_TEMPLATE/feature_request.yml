@@ -1,0 +1,24 @@
+name: طلب ميزة أو تحسين / Feature Request
+description: اقتراح تحسين لأداة مِجْهَر أو إضافة آلية تحليل جديدة
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        تذكير بعقيدة المشروع: نلتزم بمبدأ **"مِجْهَرٌ لا قاضٍ"**. أي اقتراح يهدف لإخراج نسبة حكم آلية قطعية أو احتمال P(AI) أو تقييمات غير مفسرة يُرفض تصميماً.
+        Reminder: This project adheres to the "Microscope, Not a Judge" doctrine. Proposals introducing automated verdicts or P(AI) probabilities are rejected by design.
+  - type: textarea
+    id: problem
+    attributes:
+      label: المشكلة أو الحاجة / Problem or Use-Case
+      description: ما الذي تحاول تحليله ولا توفره الأداة حالياً؟
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: الحل المقترح / Proposed Solution
+      description: كيف تتخيل الحل أو الميزة المقترحة؟
+    validations:
+      required: true

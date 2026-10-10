@@ -39,7 +39,11 @@
         "mosaic"
       ],
       "detection": "lexicon match",
-      "confidence": 0.93
+      "confidence": 0.93,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
+      "estimated_half_life_months": 12
     },
     {
       "id": "LM-003",
@@ -50,7 +54,11 @@
         "groundbreaking"
       ],
       "detection": "ADJ freq >3.5%",
-      "confidence": 0.9
+      "confidence": 0.9,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
+      "estimated_half_life_months": 12
     },
     {
       "id": "LM-004",
@@ -60,7 +68,11 @@
         "Furthermore,"
       ],
       "detection": "sentence-initial transition freq",
-      "confidence": 0.92
+      "confidence": 0.92,
+      "sources": [
+        "arxiv:2304.02819"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "LM-005",
@@ -69,7 +81,11 @@
         "It's important to note that"
       ],
       "detection": "335 phrases blacklist",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
+      "estimated_half_life_months": 12
     },
     {
       "id": "LM-006",
@@ -79,6 +95,9 @@
       ],
       "detection": "U+2014 per 1000 >4",
       "confidence": 0.88,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
       "estimated_half_life_months": 12
     },
     {
@@ -90,7 +109,11 @@
         "facilitate"
       ],
       "detection": "jargon lexicon",
-      "confidence": 0.9
+      "confidence": 0.9,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
+      "estimated_half_life_months": 12
     },
     {
       "id": "LM-008",
@@ -99,7 +122,11 @@
         "fast, reliable, and scalable"
       ],
       "detection": "triple coordination parse",
-      "confidence": 0.78
+      "confidence": 0.78,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "LM-009",
@@ -108,7 +135,11 @@
         "It's not just X, it's Y"
       ],
       "detection": "template regex",
-      "confidence": 0.84
+      "confidence": 0.84,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "LM-010",
@@ -118,6 +149,9 @@
       ],
       "detection": "trigram blacklist",
       "confidence": 0.93,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
       "estimated_half_life_months": 18
     },
     {
@@ -128,6 +162,9 @@
       ],
       "detection": "last paragraph n-gram",
       "confidence": 0.88,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
       "estimated_half_life_months": 18
     },
     {
@@ -157,6 +194,9 @@
       ],
       "detection": "affirmation lexicon",
       "confidence": 0.83,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
       "estimated_half_life_months": 12
     },
     {
@@ -184,7 +224,11 @@
         "potentially, arguably"
       ],
       "detection": "hedging lexicon",
-      "confidence": 0.77
+      "confidence": 0.77,
+      "sources": [
+        "arxiv:2304.02819"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "LM-018",
@@ -202,7 +246,11 @@
         "This is... This method..."
       ],
       "detection": "entropy first 2 words <2.0 bits",
-      "confidence": 0.86
+      "confidence": 0.86,
+      "sources": [
+        "arxiv:2401.12070"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "LM-020",

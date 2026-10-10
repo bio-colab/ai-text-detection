@@ -20,19 +20,31 @@
       "name": "Emoji Bullet Prefix",
       "pattern": "every bullet emoji",
       "threshold": ">70% bullets start emoji",
-      "confidence": 0.92
+      "confidence": 0.92,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-002",
       "name": "Tricolon Rule of Three",
       "pattern": "3 items always",
-      "confidence": 0.94
+      "confidence": 0.94,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STRUCT-003",
       "name": "Uniform Paragraph Length",
       "pattern": "82,78,85 CV<0.25",
-      "confidence": 0.88
+      "confidence": 0.88,
+      "sources": [
+        "arxiv:2304.02819"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STRUCT-004",
@@ -45,6 +57,9 @@
       "name": "Formulaic Intro Opener",
       "pattern": "In today's fast-paced world",
       "confidence": 0.95,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
       "estimated_half_life_months": 18
     },
     {
@@ -52,20 +67,31 @@
       "name": "Formulaic Conclusion",
       "pattern": "In conclusion Ultimately",
       "confidence": 0.93,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
       "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-007",
       "name": "Markdown Overstructuring",
       "pattern": "## Intro ## What is X ## Benefits",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-008",
       "name": "Bold Keyword Stuffing",
       "pattern": "**Efficiency:**",
       "threshold": ">4 per 100 words",
-      "confidence": 0.89
+      "confidence": 0.89,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-009",
@@ -79,6 +105,9 @@
       "pattern": "word — phrase",
       "threshold": "0.3 human vs 2.8 AI",
       "confidence": 0.87,
+      "sources": [
+        "arxiv:2412.11385"
+      ],
       "estimated_half_life_months": 12
     },
     {
@@ -91,19 +120,32 @@
       "id": "STRUCT-012",
       "name": "Low Burstiness Uniform Sentence",
       "pattern": "18,20,19,21 std1.2 vs 4,28,12,35 std11.4",
-      "confidence": 0.94
+      "confidence": 0.94,
+      "sources": [
+        "arxiv:2301.11305",
+        "arxiv:2401.12070"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STRUCT-013",
       "name": "Transitional Adverb Chain",
       "pattern": "Moreover Furthermore Additionally sequential",
-      "confidence": 0.84
+      "confidence": 0.84,
+      "sources": [
+        "arxiv:2304.02819"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-014",
       "name": "Multiple Conclusions",
       "pattern": "In conclusion... later In summary",
-      "confidence": 0.83
+      "confidence": 0.83,
+      "sources": [
+        "arxiv:2405.07940"
+      ],
+      "estimated_half_life_months": 18
     },
     {
       "id": "STRUCT-015",

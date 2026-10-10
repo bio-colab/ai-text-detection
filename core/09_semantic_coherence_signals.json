@@ -37,7 +37,12 @@
       "id": "SEM-004",
       "name": "Lack of Personal Experience",
       "detection": "personal grounding classifier",
-      "confidence": 0.88
+      "confidence": 0.88,
+      "sources": [
+        "arxiv:2305.15047",
+        "arxiv:2401.12070"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "SEM-005",
@@ -144,6 +149,9 @@
       "id": "SEM-021",
       "name": "Meta AI Self-Reference As an AI language model",
       "confidence": 0.96,
+      "sources": [
+        "arxiv:2303.11156"
+      ],
       "estimated_half_life_months": 6,
       "description": "Meta AI Self-Reference As an AI language model",
       "_provenance": "v3: description auto-derived from name; mechanism under-specified in source — contribution welcome"

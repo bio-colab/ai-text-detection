@@ -82,9 +82,9 @@ domain: AI Text Detection Unified v1.1
 - [[moc-Core Signals]]
 - Source files: `core/01` … `core/10` + [[ORIGINAL_README_A]]
 
-### Critical gaps (8)
+### Critical gaps (9)
 - [[moc-Gaps]]
-- Highest priority: [[03_arabic_detection]] → [[01_false_positives_non_native]] → [[05_external_evidence]]
+- Highest priority: [[03_arabic_detection]] → [[01_false_positives_non_native]] → [[09_reasoning_models_and_paraphrasers]] → [[05_external_evidence]]
 
 ### Reference cortex
 - [[moc-Reference]]

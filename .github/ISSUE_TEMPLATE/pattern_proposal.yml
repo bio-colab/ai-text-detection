@@ -1,0 +1,53 @@
+name: اقتراح نمط أسلوبي / Pattern Proposal
+description: اقترح نمطاً أسلوبياً جديداً أو وثّق نمطاً موجوداً بمصدر أكاديمي / Propose a new pattern or source citation
+title: "[Pattern]: "
+labels: ["corpus", "pattern-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        شكراً لمساهمتك في توثيق الأنماط الأسلوبية وتحصين الدليل.
+        Thanks for contributing to stylistic pattern documentation.
+  - type: dropdown
+    id: target_category
+    attributes:
+      label: تصنيف النمط / Pattern Category
+      options:
+        - "01 - Linguistic Markers (Linguistic)"
+        - "02 - Statistical Signals (Perplexity / Burstiness)"
+        - "03 - Formatting & Structural Artifacts"
+        - "04 - Hallucination & Epistemic Failures"
+        - "05 - Hedging & Epistemic Flatness"
+        - "06 - Token Bias & Lexical Frequency"
+        - "07 - Structural Uniformity"
+        - "08 - Structural Formatting Signals"
+        - "09 - Semantic Coherence Signals"
+    validations:
+      required: true
+  - type: textarea
+    id: pattern_description
+    attributes:
+      label: وصف النمط / Pattern Description
+      description: اشرح الظاهرة الأسلوبية بدقة / Precisely describe the stylistic phenomenon.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: أمثلة نصية / Text Examples
+      description: أمثلة من نصوص حقيقية (بشري مقابل ذكاء اصطناعي) / Concrete text snippets (human vs. AI).
+    validations:
+      required: true
+  - type: input
+    id: academic_source
+    attributes:
+      label: المصدر الأكاديمي أو معرّف arXiv / Academic Paper or arXiv ID
+      description: مثال / e.g. arXiv:2402.11175
+      placeholder: "arXiv:XXXX.XXXXX"
+  - type: textarea
+    id: false_positive_risks
+    attributes:
+      label: مخاطر الإيجابيات الكاذبة والتحفظات / False-Positive Risks & Caveats
+      description: متى يظهر هذا النمط في كتابات البشر الطبيعية؟ (التواضع المعرفي إلزامي) / When do humans naturally produce this? (Epistemic modesty is mandatory).
+    validations:
+      required: true

@@ -2,8 +2,8 @@
   "file_name": "10_master_taxonomy.json",
   "meta": {
     "project": "Comprehensive AI Text Detection Signals Taxonomy",
-    "version": "3.0-open",
-    "date": "2026-07-19",
+    "version": "3.1-open",
+    "date": "2026-10-11",
     "language_focus": "English",
     "sources_covered": [
       "arxiv",
@@ -15,7 +15,7 @@
     "total_files": 10,
     "total_patterns_aggregated": 164,
     "creation_method": "Multi-agent parallel research with self-review loop",
-    "gaps_filled": 8,
+    "gaps_filled": 9,
     "note": "Unified merge of engineering catalog (A) + analytical brief (B). All 8 critical gaps addressed. Fast-DetectGPT arXiv = 2310.05130. v2 corrections: pattern count fixed 174->164; 07 DetectGPT ref fixed to 2301.11305; claimed JSON fields (non_native_fp_risk, text_length_sensitivity, estimated_half_life_months) now actually implemented as documented editorial estimates; confidence semantics disclaimed; broken key_academic_papers.json repaired; LICENSE + .gitignore added. See CHANGELOG.md.",
     "unique_pattern_names": 153,
     "cross_file_duplicates": {
@@ -87,10 +87,10 @@
       "description": "Hallucination generic no personal hedging"
     },
     "10_gaps_and_limitations": {
-      "file": "gaps/ (8 markdown files)",
-      "count": 8,
+      "file": "gaps/ (9 markdown files)",
+      "count": 9,
       "type": "conceptual_limitations",
-      "description": "الثغرات الثماني الحرجة التي لم يغطها الوكيلان بشكل كافٍ: base rates, impossibility, Arabic, mixed texts, external evidence, commercial critique, calibration, obsolescence"
+      "description": "الثغرات التسع الحرجة: base rates, impossibility, Arabic, mixed texts, external evidence, commercial critique, calibration, obsolescence, reasoning models & paraphrasers"
     }
   },
   "cross_reference_matrix": {

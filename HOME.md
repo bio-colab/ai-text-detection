@@ -6,7 +6,7 @@ type: home
 
 # 🏠 HOME — AI Text Detection Brain Vault
 
-**Package:** Unified AI Text Detection **v3.0-open** · **Brain:** Cognitive OS online · **Engine:** مِجْهَر mijhar (src/)  
+**Package:** Unified AI Text Detection **v3.1-open** · **Brain:** Cognitive OS online · **Engine:** مِجْهَر mijhar (src/)  
 **Start here if new:** [[00_FULL_BRAIN]] · Package intro: [[README]]
 
 ---
@@ -36,7 +36,7 @@ type: home
 
 ```
 core/     → 10 JSON signal libraries + taxonomy
-gaps/     → 8 critical limitation docs
+gaps/     → 9 critical limitation docs
 reference/→ analytical depth + comparison HTML
 Brain/    → this cognitive operating system
 src/      → مِجْهَر mijhar: runnable evidence scanner (stdlib-only)

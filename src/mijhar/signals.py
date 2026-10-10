@@ -99,19 +99,34 @@ SYCOPHANCY_OPENERS_EN = [
 
 AI_SELF_DISCLOSURE_AR = [
     "بصفتي نموذج ذكاء اصطناعي", "بصفتي نموذج لغة",
-    "كنموذج ذكاء اصطناعي", "لا أستطيع تصفح الإنترنت",
+    "كنموذج ذكاء اصطناعي", "كنموذج لغوي كبير",
+    "كمساعد ذكاء اصطناعي", "بصفتي مساعد ذكاء اصطناعي",
+    "لا أستطيع تصفح الإنترنت", "لا يمكنني الوصول إلى الإنترنت",
     "بيانات تدريبي", "حتى تاريخ معرفتي",
+    "تاريخ انقطاع معلوماتي", "لا أملك مشاعر أو آراء شخصية",
 ]
 
 META_FILLER_AR = [
     "من الجدير بالذكر", "تجدر الإشارة إلى", "لا يخفى على أحد",
     "مما لا شك فيه", "وفي هذا الصدد", "علاوة على ذلك",
-    "بالإضافة إلى ذلك", "ومن ناحية أخرى",
+    "بالإضافة إلى ذلك", "ومن ناحية أخرى", "من الأهمية بمكان",
+    "يلعب دوراً محورياً", "تلعب دوراً محورياً", "يلعب دوراً حاسماً",
+    "تلعب دوراً حاسماً", "في واقع الأمر", "جدير بالذكر أن",
+    "من نافلة القول", "على صعيد آخر", "تجدر الإشارة هنا إلى",
+    "في سياق متصل",
+]
+
+CLICHE_OPENERS_AR = [
+    "في عالمنا المعاصر", "في عصرنا الحالي", "في ظل التطورات المتسارعة",
+    "في عصر التحول الرقمي", "منذ فجر التاريخ", "في ظل التقدم التكنولوجي",
+    "في ظل الثورة التكنولوجية", "مع تسارع وتيرة الحياة", "في الحقبة المعاصرة",
 ]
 
 CLICHE_CLOSERS_AR = [
     "في الختام", "خلاصة القول", "وختاماً", "ومجمل القول",
-    "وفي نهاية المطاف",
+    "وفي نهاية المطاف", "صفوة القول", "مجمل القول أن",
+    "ختاماً يمكن القول", "في المحصلة النهائية", "تأسيساً على ما سبق",
+    "وهكذا يتضح أن", "وجملة القول",
 ]
 
 # --------------------------------------------------------------------------
@@ -234,7 +249,7 @@ def sig_ai_self_disclosure(text, ctx):
         phr = AI_SELF_DISCLOSURE_EN + AI_SELF_DISCLOSURE_AR
     hits = _phrase_hits(ctx["lower"], text, phr)
     return SignalResult(
-        "MJ-ANY-02", "SEM/meta (agent-B) + LM-005 family", "AI self-disclosure phrases",
+        "MJ-ANY-02", "SEM-021,LM-005", "AI self-disclosure phrases",
         "any", fired=len(hits) > 0, value=float(len(hits)),
         threshold_note="any occurrence",
         weight=0.99, evidence=hits[:5],
@@ -259,9 +274,12 @@ def sig_meta_filler(text, ctx):
 
 def sig_cliche_frame(text, ctx):
     lower = ctx["lower"]
-    op = _phrase_hits(lower[:400], text[:400], CLICHE_OPENERS_EN, 3)
-    cl = _phrase_hits(lower, text, CLICHE_CLOSERS_EN if ctx["lang"] != "ar"
-                      else CLICHE_CLOSERS_AR, 3)
+    openers = (CLICHE_OPENERS_EN if ctx["lang"] == "en" else (
+        CLICHE_OPENERS_AR if ctx["lang"] == "ar" else CLICHE_OPENERS_EN + CLICHE_OPENERS_AR))
+    closers = (CLICHE_CLOSERS_EN if ctx["lang"] == "en" else (
+        CLICHE_CLOSERS_AR if ctx["lang"] == "ar" else CLICHE_CLOSERS_EN + CLICHE_CLOSERS_AR))
+    op = _phrase_hits(lower[:400], text[:400], openers, 3)
+    cl = _phrase_hits(lower, text, closers, 3)
     fired = bool(op) and bool(cl)
     return SignalResult(
         "MJ-ANY-04", "LM-010,LM-011,STRUCT-005,STRUCT-006", "Cliché opener + closer frame",
@@ -290,11 +308,13 @@ def sig_em_dash(text, ctx):
 
 
 def sig_rule_of_three(text, ctx):
-    pat = re.compile(r"\b[\w\u0600-\u06FF]+،?\s*,?\s*[\w\u0600-\u06FF]+،?\s*,?\s*"
-                     r"(?:and|or|و)\s+[\w\u0600-\u06FF]+", re.IGNORECASE)
-    # stricter: X, Y, and Z with commas
-    strict = re.compile(r"[\w\u0600-\u06FF]+\s*[,،]\s*[\w\u0600-\u06FF]+\s*[,،]?\s*"
-                        r"(?:and|و)\s+[\w\u0600-\u06FF]+", re.IGNORECASE)
+    if ctx["lang"] == "ar":
+        # Arabic triplets often use 'و' without commas: X و Y و Z
+        strict = re.compile(r"[\w\u0600-\u06FF]+(?:\s*،\s*|\s+و\s*)[\w\u0600-\u06FF]+"
+                            r"(?:\s*،\s*|\s+)?و\s+[\w\u0600-\u06FF]+", re.UNICODE)
+    else:
+        strict = re.compile(r"[\w\u0600-\u06FF]+\s*[,،]\s*[\w\u0600-\u06FF]+\s*[,،]?\s*"
+                            r"(?:and|و)\s+[\w\u0600-\u06FF]+", re.IGNORECASE)
     ms = list(strict.finditer(text))
     n_sent = max(1, len(ctx["sents"]))
     rate = len(ms) / n_sent
@@ -378,7 +398,7 @@ def sig_burstiness(text, ctx):
     lens = [len(_WORD_RE.findall(s)) for s in ctx["sents"]]
     if len(lens) < 8:
         return SignalResult(
-            "MJ-ANY-11", "STRUCT-012,STAT burstiness family", "Sentence-length burstiness (CV proxy)",
+            "MJ-ANY-11", "STRUCT-012,STAT-002", "Sentence-length burstiness (CV proxy)",
             "any", fired=False, value=-1.0,
             threshold_note="needs ≥8 sentences; NOT EVALUATED",
             weight=0.7, caveat="Text too short for a stable estimate "
@@ -386,7 +406,7 @@ def sig_burstiness(text, ctx):
     mean = statistics.mean(lens)
     cv = statistics.pstdev(lens) / mean if mean else 0.0
     return SignalResult(
-        "MJ-ANY-11", "STRUCT-012,STAT burstiness family", "Sentence-length burstiness (CV proxy)",
+        "MJ-ANY-11", "STRUCT-012,STAT-002", "Sentence-length burstiness (CV proxy)",
         "any", fired=cv < 0.32, value=round(cv, 3),
         threshold_note="CV < 0.32 → suspiciously uniform (editorial proxy for "
                        "low burstiness; NOT token-level PPL burstiness)",
@@ -415,7 +435,15 @@ def sig_paragraph_uniformity(text, ctx):
 
 
 def sig_markdown_overstructure(text, ctx):
-    n_words = max(1, len(ctx["words"]))
+    n_words = len(ctx["words"])
+    if n_words < 30:
+        return SignalResult(
+            "MJ-ANY-13", "STRUCT-007,STRUCT-008,STRUCT-001,STRUCT-016",
+            "Markdown over-structuring (headers + **Bold:** + emoji bullets)",
+            "any", fired=False, value=-1.0,
+            threshold_note="needs ≥30 words; NOT EVALUATED",
+            weight=0.85,
+            caveat="Text too short for formatting evaluation.")
     headers = len(re.findall(r"^#{1,4}\s", text, re.MULTILINE))
     bold_colon = len(re.findall(r"\*\*[^*\n]{1,40}\*\*\s*[::]", text))
     emoji_bullets = len(re.findall(
@@ -492,7 +520,7 @@ def sig_personal_voice_absence(text, ctx):
     n = max(1, len(ctx["words"]))
     rate = pronouns / n * 1000
     return SignalResult(
-        "MJ-ANY-16", "SEM personal-voice family (agent B)", "Personal-voice absence",
+        "MJ-ANY-16", "SEM-004", "Personal-voice absence",
         "any", fired=(rate < 1.0 and n > 300), value=round(rate, 2),
         threshold_note="<1 first-person marker per 1000 words in 300+ word text",
         weight=0.5,

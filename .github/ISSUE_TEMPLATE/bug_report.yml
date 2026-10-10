@@ -1,0 +1,45 @@
+name: بلاغ عن خطأ / Bug Report
+description: الإبلاغ عن مشكلة برمجية في أداة مِجْهَر أو خطأ في بيانات الـ Corpus
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        تأكد من البحث في المشاكل السابقة قبل فتح بلاغ جديد.
+        Please search existing issues before opening a new one.
+  - type: dropdown
+    id: component
+    attributes:
+      label: المكوّن المتأثر / Affected Component
+      options:
+        - "محرك مِجْهَر (src/mijhar)"
+        - "ملفات المعجم وتصنيف الأنماط (core/*.json)"
+        - "سكربت التحقق والنزاهة (scripts/validate_corpus.py)"
+        - "التوثيق ومجلد المعرفة (Brain / gaps / README)"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: وصف المشكلة / Description
+      description: اشرح ما حدث وما كان متوقعاً حدوثه / Explain what happened and what was expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: خطوات إعادة الإنتاج / Steps to Reproduce
+      description: الأوامر أو المدخلات التي تؤدي إلى ظهور الخطأ / Commands or inputs triggering the issue.
+      placeholder: |
+        1. تشغيل الأمر: python -m mijhar file.txt
+        2. ظهور الخطأ: ...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: البيئة / Environment
+      description: نظام التشغيل وإصدار بايثون (مثال: Windows 11, Python 3.12 / Ubuntu 24.04).
+    validations:
+      required: false

@@ -4,7 +4,7 @@ aliases: [Gaps MOC, moc-Gaps]
 type: moc
 ---
 
-# MOC — Critical Gaps (8)
+# MOC — Critical Gaps (9)
 
 Parent: [[00_FULL_BRAIN]] · Doctrine source for [[fn-Making Decision]]
 
@@ -18,6 +18,7 @@ Parent: [[00_FULL_BRAIN]] · Doctrine source for [[fn-Making Decision]]
 | 6 | [[06_commercial_claims_critique]] | ★★★★ | Understanding, Knowledge |
 | 7 | [[07_calibration_fusion_length]] | ★★★★ | Inference, Fusion protocol |
 | 8 | [[08_signal_obsolescence]] | ★★★★ | Watching, Learning, Knowledge |
+| 9 | [[09_reasoning_models_and_paraphrasers]] | ★★★★★★★ | Understanding, Predicting, Knowledge |
 
 ## Doctrine one-liners
 
@@ -29,6 +30,7 @@ Parent: [[00_FULL_BRAIN]] · Doctrine source for [[fn-Making Decision]]
 6. **Commercial** — claims ≠ calibrated local truth.
 7. **Calibrate/fuse/length** — mature engineering required.
 8. **Obsolescence** — living taxonomy or die.
+9. **Reasoning & Paraphrasers** — CoT & search collapse post-hoc statistical signals; provenance required.
 
 ## Read order (Arabic institutional context)
 1. [[03_arabic_detection]]

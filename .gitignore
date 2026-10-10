@@ -10,10 +10,17 @@ Thumbs.db
 desktop.ini
 *.swp
 *~
+~$*.doc*
 
-# Python (if scripts are added later)
+# Python packaging and testing
 __pycache__/
 *.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
 .venv/
 venv/
 
@@ -23,3 +30,5 @@ node_modules/
 # Local scratch
 /tmp/
 *.tmp
+*.log
+scratch/

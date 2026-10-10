@@ -16,7 +16,7 @@ from datetime import date
 from .signals import ALL_SIGNALS, build_context
 
 TOOL_NAME = "mijhar"
-TOOL_VERSION = "3.0.0"
+TOOL_VERSION = "3.1.0"
 
 DOCTRINE = {
     "verdict": "NONE — this tool never decides authorship.",

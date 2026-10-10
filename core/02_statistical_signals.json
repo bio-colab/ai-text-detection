@@ -21,14 +21,24 @@
       "formula": "PPL = exp(-1/N sum log P)",
       "threshold": "<40 AI vs >60 human",
       "method": "GPT-2/Neo-2.7B",
-      "confidence": 0.92
+      "confidence": 0.92,
+      "sources": [
+        "arxiv:1906.04043",
+        "arxiv:2401.12070"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STAT-002",
       "name": "Low Burstiness",
       "formula": "std(PPL_sentence)/mean",
       "threshold": "Var <20",
-      "confidence": 0.88
+      "confidence": 0.88,
+      "sources": [
+        "arxiv:2301.11305",
+        "arxiv:2401.12070"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STAT-003",
@@ -50,14 +60,22 @@
       "formula": "d = logP(x) - E[logP(xtilde)]",
       "threshold": ">0.2 AI",
       "method": "T5-3B perturb 100x",
-      "confidence": 0.93
+      "confidence": 0.93,
+      "sources": [
+        "arxiv:2301.11305"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STAT-006",
       "name": "Fast-DetectGPT Conditional Curvature",
       "formula": "mean(logP - E logP_alt)/std",
       "threshold": ">1.0 AI",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "sources": [
+        "arxiv:2310.05130"
+      ],
+      "estimated_half_life_months": 24
     },
     {
       "id": "STAT-007",

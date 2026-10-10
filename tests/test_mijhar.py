@@ -109,6 +109,39 @@ def test_cli_smoke():
     assert out["summary"]["signals_fired"] >= 5
 
 
+def test_emoji_and_short_edge_cases_stay_quiet():
+    r = scan_text("😊🚀🔥")
+    assert r["summary"]["signals_fired"] == 0, "emoji-only text must not fire formatting signals"
+    r_empty = scan_text("   ")
+    assert r_empty["summary"]["signals_fired"] == 0
+
+
+def test_all_signal_corpus_references_exist_in_core():
+    from mijhar.signals import ALL_SIGNALS, build_context
+    core_ids = set()
+    for f in os.listdir(os.path.join(ROOT, "core")):
+        if f.endswith(".json") and f.startswith("0"):
+            d = json.load(open(os.path.join(ROOT, "core", f), encoding="utf-8"))
+            for p in d.get("patterns", []):
+                if "id" in p:
+                    core_ids.add(p["id"])
+    ctx = build_context("This is a sample test sentence.")
+    for fn in ALL_SIGNALS:
+        res = fn("sample", ctx)
+        for pid in res.corpus_ref.split(","):
+            pid = pid.strip()
+            assert pid in core_ids, f"Signal {res.signal_id} references unknown pattern '{pid}'"
+
+
+def test_docx_reading_support():
+    p = os.path.join(ROOT, "examples", "الإشارة_المقنعة_نحل_وديمقراطية.docx")
+    if os.path.exists(p):
+        from mijhar.__main__ import _read_file
+        t = _read_file(p)
+        assert len(t) > 1000
+        assert "نحل" in t
+
+
 # ---------------------------------------------------------------- corpus
 def test_validate_corpus_is_green():
     p = subprocess.run(

@@ -154,6 +154,39 @@
       "key_contributions_to_indicators": "First production-deployed generative watermark (Gemini), using tournament sampling; evaluated on ~20M live responses with preserved text quality. Demonstrates that provenance-based detection can scale, while remaining vulnerable to heavy paraphrase — the practical counterpart of Kirchenbauer's scheme in core/03.",
       "relevance": "Where watermarking actually stands in deployed systems.",
       "added_in": "v3"
+    },
+    {
+      "title": "M4GT-Bench: Evaluation Benchmark for Black-Box Machine-Generated Text Detection",
+      "authors": "Yuxia Wang, Jonibek Mansurov, Petar Ivanov, Jinyan Su, et al. (MBZUAI)",
+      "year": 2024,
+      "arxiv_id": "2402.11175",
+      "link": "https://arxiv.org/abs/2402.11175",
+      "type": "Multilingual & Multi-Generator Benchmark / Arabic Coverage",
+      "key_contributions_to_indicators": "Comprehensive black-box benchmark covering Arabic and other languages across multiple generators, domains, and crucial mixed human-AI boundary detection tasks. Directly addresses gaps/03 and gaps/04.",
+      "relevance": "Key benchmark bridging monolingual English detection and Arabic evaluation in academic contexts.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "MarkLLM: An Open-Source Toolkit for LLM Watermarking",
+      "authors": "Leyi Pan, Aiwei Liu, Zhiwei He, Gao Lovelace, et al. (Tsinghua University)",
+      "year": 2024,
+      "arxiv_id": "2405.10051",
+      "link": "https://arxiv.org/abs/2405.10051",
+      "type": "Watermarking Toolkit & Benchmark",
+      "key_contributions_to_indicators": "Unified open-source framework and evaluation suite covering 9+ watermark algorithms across robustness, detectability, and text-quality impact metrics. Foundational for green-box analysis in core/03.",
+      "relevance": "Standardized reference implementation and evaluation platform for LLM watermarks.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "Evaluating the Performance of AI Text Detectors, Few-Shot and Chain-of-Thought Prompting Using DeepSeek Generated Text",
+      "authors": "Academic Research Group",
+      "year": 2025,
+      "arxiv_id": "2507.17944",
+      "link": "https://arxiv.org/abs/2507.17944",
+      "type": "Reasoning Models / Evasion & Evaluation",
+      "key_contributions_to_indicators": "Evaluates commercial and open detectors against DeepSeek reasoning and CoT-augmented text. Demonstrates severe degradation of detector accuracy when test-time reasoning is applied.",
+      "relevance": "Direct empirical verification of the reasoning model blind spot analyzed in gaps/09.",
+      "added_in": "v3.1"
     }
   ],
   "other_resources": {
