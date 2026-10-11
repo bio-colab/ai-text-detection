@@ -36,7 +36,7 @@ def main(argv=None):
         text = sys.stdin.read()
     else:
         text = _read_file(path)
-    report = scan_text(text)
+    report = scan_text(text, filename=path)
     try:
         print(to_json(report) if as_json else to_human(report))
     except BrokenPipeError:  # piped into head/less — not an error

@@ -98,6 +98,24 @@ def test_json_roundtrip_and_human_render():
     assert "DOCTRINE" in h and "mijhar" in h
 
 
+def test_chain_of_authenticity():
+    sample = read("sample_ai_like.txt")
+    r = scan_text(sample, filename="examples/sample_ai_like.txt")
+    coa = r.get("chain_of_authenticity", {})
+    assert "sha256" in coa
+    import hashlib
+    assert coa["sha256"] == hashlib.sha256(sample.encode("utf-8")).hexdigest()
+    assert coa["deterministic"] is True
+    assert coa["taxonomy_version"] == "v3.1-open"
+    assert "git_commit" in coa
+    assert "timestamp_utc" in coa
+    assert "reproducible_cli" in coa
+    assert "examples/sample_ai_like.txt" in coa["reproducible_cli"]
+    human = to_human(r)
+    assert "SHA-256" in human
+    assert coa["sha256"] in human
+
+
 def test_cli_smoke():
     env = dict(os.environ, PYTHONPATH=os.path.join(ROOT, "src"))
     p = subprocess.run(

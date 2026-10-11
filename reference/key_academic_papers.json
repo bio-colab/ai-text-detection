@@ -187,9 +187,104 @@
       "key_contributions_to_indicators": "Evaluates commercial and open detectors against DeepSeek reasoning and CoT-augmented text. Demonstrates severe degradation of detector accuracy when test-time reasoning is applied.",
       "relevance": "Direct empirical verification of the reasoning model blind spot analyzed in gaps/09.",
       "added_in": "v3.1"
+    },
+    {
+      "title": "AI Text Detectors and the Misclassification of Slightly Polished Arabic Text (Ar-APT)",
+      "authors": "Saleh Almohaimeed, Saad Almohaimeed, Mousa Jari, Khaled A. Alobaid, Fahad Alotaibi",
+      "year": 2025,
+      "arxiv_id": "2511.16690",
+      "link": "https://arxiv.org/abs/2511.16690",
+      "type": "Arabic Fairness / Polishing / False Positives",
+      "key_contributions_to_indicators": "First dedicated benchmark (Ar-APT, 16,400 samples) evaluating slightly polished human-authored Arabic text. Proves that high-performing detectors collapse (from ~92% accuracy down to 12% in some settings) and falsely accuse ~5% of genuine human articles as AI when lightly edited by models. Demonstrates acute false-positive risk for Arab students.",
+      "relevance": "The foundational empirical evidence for the risks of AI detectors in Arab academia; core citation for gaps/01 and gaps/03.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "ALHD: A Large-Scale and Multigenre Benchmark Dataset for Arabic LLM-Generated Text Detection",
+      "authors": "Ali Khairallah, Arkaitz Zubiaga",
+      "year": 2025,
+      "arxiv_id": "2510.03502",
+      "link": "https://arxiv.org/abs/2510.03502",
+      "type": "Arabic Benchmark / Multigenre Dataset",
+      "key_contributions_to_indicators": "Largest balanced benchmark dataset for Arabic LLM text detection (400,000+ samples across news, social media, and reviews, covering MSA and dialects). Shows that while fine-tuned models outperform zero-shot detectors, cross-genre generalization severely degrades.",
+      "relevance": "Defines the scale and genre diversity required for testing Arabic detectors (gaps/03).",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "The Arabic AI Fingerprint: Stylometric Analysis and Detection of Large Language Models Text",
+      "authors": "Maged S. Al-Shaibani, Moataz Ahmed (SDAIA-KFUPM JRCAI)",
+      "year": 2025,
+      "arxiv_id": "2505.23276",
+      "link": "https://arxiv.org/abs/2505.23276",
+      "type": "Arabic Stylometry / Multi-Model Analysis",
+      "key_contributions_to_indicators": "Stylometric feature analysis across Arabic LLMs (ALLaM, Jais, Llama, GPT-4). Reveals high discriminative power in structured academic abstracts (up to 99.9% F1) but dramatic drop in noisy social domains.",
+      "relevance": "Grounds Arabic stylometric feature selection and warns against cross-domain overconfidence.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "Operation-Guided Progressive Human-to-AI Text Transformation Benchmark (OpAI-Bench)",
+      "authors": "OpAI-Bench Research Team",
+      "year": 2026,
+      "arxiv_id": "2606.06481",
+      "link": "https://arxiv.org/abs/2606.06481",
+      "type": "Mixed-Authorship / Progressive Transformation",
+      "key_contributions_to_indicators": "Evaluates multi-granularity detection on texts undergoing step-by-step AI editing. Proves that intermediate mixed-authorship states are non-monotonically harder to detect than either pure human or pure AI endpoints.",
+      "relevance": "Empirical proof of the mixed-authorship blind spot analyzed in gaps/04.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "Watermarks Without Verification: AI Text Watermarking After the EU AI Act",
+      "authors": "Alexander Nemecek, Vipin Chaudhary, Erman Ayday",
+      "year": 2026,
+      "arxiv_id": "2609.09604",
+      "link": "https://arxiv.org/abs/2609.09604",
+      "type": "Watermarking / EU AI Act Regulation / Governance",
+      "key_contributions_to_indicators": "Evaluates commercial post-EU AI Act Article 50 text watermarks (SynthID-Text, Claude watermark). Demonstrates that without shared verification protocols and private keys, third-party independent verification is impossible ('unverifiability'). Shows detection in code degrades to chance level.",
+      "relevance": "Crucial governance critique; proves why independent open microscopes cannot rely on vendor watermark keys.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "Detecting the Machine: A Comprehensive Benchmark Across Architectures, Domains, and Adversarial Conditions",
+      "authors": "Madhav S. Baidya, S. S. Baidya, Chirag Chawla",
+      "year": 2026,
+      "arxiv_id": "2603.17522",
+      "link": "https://arxiv.org/abs/2603.17522",
+      "type": "Comprehensive 2026 Benchmark / Architecture Comparison",
+      "key_contributions_to_indicators": "Systematic comparison of neural classifiers, stylometric-hybrid XGBoost, and perplexity metrics. Identifies perplexity polarity inversion in modern LLMs and shows stylometric hybrids match neural AUROC while offering superior interpretability.",
+      "relevance": "Validates the hybrid stylometric philosophy underlying mijhar.",
+      "added_in": "v3.1"
+    },
+    {
+      "title": "AEyeDE: An Attention-Based Attribution Framework for AI-Generated Text Detection",
+      "authors": "Aria Nourbakhsh, Adelaide Danilov, Christoph Schommer, Salima Lamsiyah",
+      "year": 2026,
+      "arxiv_id": "2606.00016",
+      "link": "https://arxiv.org/abs/2606.00016",
+      "type": "Attention Attribution / Evasion Robustness",
+      "key_contributions_to_indicators": "Extracts attribution matrices from proxy transformer attention maps to train lightweight CNN classifiers. Outperforms surface heuristics on adversarial paraphrases and cites the AraGenEval Arabic benchmark.",
+      "relevance": "Represents the vanguard of attribution-driven detection beyond surface tokens.",
+      "added_in": "v3.1"
     }
   ],
   "other_resources": {
+    "accountability_and_legal_governance_2026": [
+      {
+        "citation": "Bassett et al. (2026) 'Heads we win, tails you lose: AI detectors in education', Journal of Higher Education Policy and Management, DOI: 10.1080/1360080X.2026.2622146",
+        "key_finding": "AI detection relies on unverifiable probabilistic estimates and fails the legal 'balance of probabilities' standard required for academic misconduct investigations; advocates against punitive detection-based policies."
+      },
+      {
+        "citation": "'Detecting the undetectable?', Assessment & Evaluation in Higher Education (2026), DOI: 10.1080/02602938.2026.2728036",
+        "key_finding": "Unlike plagiarism detection which has ground-truth source text, AI detection has no verifiable baseline; score reliance violates procedural fairness."
+      },
+      {
+        "authority": "US Office of Research Integrity (ORI) AI Misconduct Guidance (2026 revision)",
+        "key_finding": "Prohibits using automated AI detectors as sole evidence; mandates full institutional preservation of research records and audit trails for 7 years."
+      },
+      {
+        "authority": "National Center for State Courts (NCSC) Judicial Guide on AI Evidence (2026)",
+        "key_finding": "Establishes Chain of Authenticity criteria: requires provenance metadata, hash fingerprints, and reproducible testing methods for algorithmic evidence."
+      }
+    ],
     "wikipedia": "No dedicated comprehensive page on 'AI-generated text detection' or 'LLM watermarking' as of 2026 searches. Related coverage exists fragmented in 'Generative artificial intelligence', 'ChatGPT', 'Academic integrity', 'Plagiarism', or 'Large language model' pages. Academic literature (arXiv surveys) is far more authoritative and up-to-date than Wikipedia for this technical topic.",
     "huggingface": "Rich ecosystem of fine-tuned detectors (RoBERTa variants listed in detectors_tools.json). Model cards often reference training datasets (e.g. RAID, custom human/AI pairs) and provide inference examples. Spaces for demos. Key for open-source practical deployment of ML pattern-based detectors.",
     "github": "Implementations of GLTR, DetectGPT/Fast-DetectGPT, watermark detectors, benchmark suites (MGTBench etc.), attack tools. Essential for reproducing patterns and building custom solutions. Search terms: 'ai text detector', 'llm watermark', 'detectgpt', 'gltr'.",
